@@ -1,0 +1,77 @@
+{
+  "_id": "static",
+  "startUrls": ["https://demo-site.at.ispras.ru/static"],
+  "beginProgram": [1, 2],
+  "selectors": [
+    {
+      "id": "1",
+      "type": "extractor",
+      "subType": "url",
+      "selector": ".nav ul li a",
+      "name": "S:links",
+      "multiple": true
+    },
+    {
+      "id": "2",
+      "type": "foreach",
+      "array": "S:links",
+      "name": "S:link",
+      "program": [3, 4, 5]
+    },
+    {
+      "id": "3",
+      "type": "goto",
+      "link": "S:link"
+    },
+    {
+      "id": "4",
+      "type": "variable",
+      "name": "S:page",
+      "value": "0"
+    },
+    {
+      "id": "5",
+      "type": "while",
+      "firstOperand": "S:page",
+      "logicalOperation": "<=",
+      "secondOperand": "3",
+      "program": [6, 7, 8, 9]
+    },
+    {
+      "id": "6",
+      "type": "extractor",
+      "subType": "url",
+      "selector": "h5.card-title a",
+      "name": "S:cards",
+      "multiple": true
+    },
+    {
+      "id": "7",
+      "type": "foreach",
+      "array": "S:cards",
+      "name": "S:card",
+      "program": [10, 11]
+    },
+    {
+      "id": "8",
+      "type": "click",
+      "selector": ".btn"
+    },
+    {
+      "id": "9",
+      "type": "increment",
+      "name": "page"
+    },
+    {
+      "id": "10",
+      "type": "goto",
+      "link": "S:card"
+    },
+    {
+      "id": "11",
+      "type": "include",
+      "label": "someScrapeMap"
+    }
+  ]
+}
+

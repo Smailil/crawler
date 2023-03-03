@@ -1,5 +1,5 @@
 {
-  "_id": "scrapemap",
+  "_id": "scrapeMap",
   "beginProgram": [1, 2, 3, 4],
   "selectors": [
     {
@@ -28,27 +28,6 @@
     },
     {
       "id": "4",
-      "type": "foreach",
-      "subType": "selector",
-      "selector": ".form-select option",
-      "selectorName": "S:sel1",
-      "program": [5, 6, 7]
-    },
-    {
-      "id": "5",
-      "type": "extractor",
-      "subType": "text",
-      "selector": "S:sel1",
-      "name": "S:option",
-      "multiple": false
-    },
-    {
-      "id": "6",
-      "type": "click",
-      "selector": "S:sel1"
-    },
-    {
-      "id": "7",
       "type": "extractor",
       "subType": "text",
       "selector": ".text-primary",

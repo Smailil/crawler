@@ -3,7 +3,7 @@
   "connectors": [
     {
       "label": "someScrapeMap",
-      "scrapemap": "scrapemap"
+      "scrapeMap": "scrapeMap"
     }
   ]
 }
