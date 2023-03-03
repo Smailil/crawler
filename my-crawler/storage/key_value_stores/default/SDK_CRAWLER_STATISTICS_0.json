@@ -1,0 +1,70 @@
+{
+  "requestsFinished": 0,
+  "requestsFailed": 1,
+  "requestsRetries": 1,
+  "requestsFailedPerMinute": 0,
+  "requestsFinishedPerMinute": 0,
+  "requestMinDurationMillis": null,
+  "requestMaxDurationMillis": 0,
+  "requestTotalFailedDurationMillis": 15004,
+  "requestTotalFinishedDurationMillis": 0,
+  "crawlerStartedAt": "2023-03-03T13:38:47.588Z",
+  "crawlerFinishedAt": "2023-03-03T13:40:10.768Z",
+  "statsPersistedAt": "2023-03-03T13:40:10.768Z",
+  "crawlerRuntimeMillis": 83270,
+  "crawlerLastStartTimestamp": 1677850727498,
+  "requestRetryHistogram": [
+    null,
+    null,
+    null,
+    1
+  ],
+  "statsId": 0,
+  "requestAvgFailedDurationMillis": 15004,
+  "requestAvgFinishedDurationMillis": null,
+  "requestTotalDurationMillis": 15004,
+  "requestsTotal": 1,
+  "requestsWithStatusCode": {
+    "200": 2
+  },
+  "errors": {
+    "/home/smailil/WebstormProjects/crawler/my-crawler/node_modules/@crawlee/src/browser-pool.ts:548:19": {
+      "missing error code": {
+        "Error": {
+          "browserController.newPage() failed: uZN6_QpLw3V3LOsz2WnsH": {
+            "count": 1
+          }
+        }
+      }
+    }
+  },
+  "retryErrors": {
+    "/home/smailil/WebstormProjects/crawler/my-crawler/node_modules/puppeteer-core/src/common/WaitTask.ts:79:11": {
+      "missing error code": {
+        "TimeoutError": {
+          "Waiting for selector `li.page-item:nth-child(3)` failed: Waiting failed: 30000ms exceeded": {
+            "count": 1
+          }
+        }
+      }
+    },
+    "/home/smailil/WebstormProjects/crawler/my-crawler/node_modules/@crawlee/src/browser-pool.ts:548:19": {
+      "missing error code": {
+        "Error": {
+          "browserController.newPage() failed: gDvyiLZswUXF7AJKd04Pl": {
+            "count": 1
+          }
+        }
+      }
+    },
+    "<anonymous>": {
+      "missing error code": {
+        "ProtocolError": {
+          "Waiting for selector `li.page-item:nth-child(3)` failed: Protocol error (Runtime.callFunctionOn): Target closed.": {
+            "count": 1
+          }
+        }
+      }
+    }
+  }
+}
