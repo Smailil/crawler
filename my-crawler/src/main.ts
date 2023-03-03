@@ -2,10 +2,11 @@
 import { PuppeteerCrawler, log } from 'crawlee';
 import { router } from './routes.js';
 
-const startUrls = ['https://crawlee.dev'];
+const startUrls = ['https://demo-site.at.ispras.ru/static'];
 
 const crawler = new PuppeteerCrawler({
     // proxyConfiguration: new ProxyConfiguration({ proxyUrls: ['...'] }),
+    headless: false,
     requestHandler: router,
 });
 
