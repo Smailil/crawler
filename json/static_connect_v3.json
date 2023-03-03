@@ -1,0 +1,9 @@
+{
+  "rootMap": "static",
+  "connectors": [
+    {
+      "label": "someScrapeMap",
+      "scrapemap": "scrapemap"
+    }
+  ]
+}

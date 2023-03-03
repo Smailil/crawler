@@ -1,0 +1,59 @@
+{
+  "_id": "scrapemap",
+  "beginProgram": [1, 2, 3, 4],
+  "selectors": [
+    {
+      "id": "1",
+      "type": "extractor",
+      "subType": "image",
+      "selector": "img",
+      "name": "S:img",
+      "multiple": false
+    },
+    {
+      "id": "2",
+      "type": "extractor",
+      "subType": "text",
+      "selector": "title",
+      "name": "S:title",
+      "multiple": false
+    },
+    {
+      "id": "3",
+      "type": "extractor",
+      "subType": "text",
+      "selector": "text",
+      "name": "S:text",
+      "multiple": true
+    },
+    {
+      "id": "4",
+      "type": "foreach",
+      "subType": "selector",
+      "selector": ".form-select option",
+      "selectorName": "S:sel1",
+      "program": [5, 6, 7]
+    },
+    {
+      "id": "5",
+      "type": "extractor",
+      "subType": "text",
+      "selector": "S:sel1",
+      "name": "S:option",
+      "multiple": false
+    },
+    {
+      "id": "6",
+      "type": "click",
+      "selector": "S:sel1"
+    },
+    {
+      "id": "7",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".text-primary",
+      "name": "S:price",
+      "multiple": false
+    }
+  ]
+}
