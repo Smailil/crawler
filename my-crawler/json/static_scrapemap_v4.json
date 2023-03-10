@@ -1,6 +1,6 @@
 {
   "_id": "scrapeMap",
-  "beginProgram": [1, 2, 3, 4],
+  "beginProgram": ["1", "2", "3", "4"],
   "selectors": [
     {
       "id": "1",
@@ -14,7 +14,7 @@
       "id": "2",
       "type": "extractor",
       "subType": "text",
-      "selector": "title",
+      "selector": ".card-title",
       "name": "S:title",
       "multiple": false
     },
@@ -22,7 +22,7 @@
       "id": "3",
       "type": "extractor",
       "subType": "text",
-      "selector": "text",
+      "selector": ".card-text",
       "name": "S:text",
       "multiple": true
     },

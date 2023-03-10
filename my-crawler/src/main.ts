@@ -1,8 +1,9 @@
 // For more information, see https://crawlee.dev/
-import { PuppeteerCrawler, log } from 'crawlee';
+import { PuppeteerCrawler } from 'crawlee';
 import { router } from './routes.js';
 
-const startUrls = ['https://demo-site.at.ispras.ru/static'];
+
+const startUrls = ['https://demo-site.at.ispras.ru/product/1'];
 
 const crawler = new PuppeteerCrawler({
     // proxyConfiguration: new ProxyConfiguration({ proxyUrls: ['...'] }),

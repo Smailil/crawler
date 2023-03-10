@@ -1,38 +1,19 @@
-import { Dataset, createPuppeteerRouter } from 'crawlee';
+import {createPuppeteerRouter} from 'crawlee';
+import * as fs from 'fs';
+import { fileURLToPath } from 'url';
+import path from 'path';
+import {Scrape} from "./scrape.js";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const router = createPuppeteerRouter();
 
-router.addDefaultHandler(async ({ page, log }) => {
-    const navItems = await page.$$eval('.nav ul li a', links =>
-        links.map(link => link.href)
-    );
+router.addDefaultHandler(async ({ page }) => {
+    const pathToFile = path.join(__dirname, '../json/static_scrapemap_v4.json');
+    const jsonString = fs.readFileSync(pathToFile).toString();
+    const jsonObj = JSON.parse(jsonString);
 
-    for (const item of navItems) {
-        log.info(`Visiting ${item}`);
-        await page.goto(item);
-        let pageNumber = 0;
-        while (pageNumber < 3) {
-            await page.waitForSelector('li.page-item:nth-child(' +
-                (pageNumber + 1) + ')');
-            await page.click('li.page-item:nth-child(' +
-                (pageNumber + 1) + ')');
-            pageNumber++;
-            const cardUrls = await page.$$eval('.card-body a', links =>
-                links.map(link => link.href)
-            )
-            for (const url of cardUrls) {
-                const title = await page.$eval('.card-title', el => el.textContent);
-                const text = await page.$eval('.card-text', el => el.textContent);
-                const image = await page.$eval('.text-center img', el => el.src);
-                await Dataset.pushData({
-                    item: item,
-                    url: url,
-                    title: title,
-                    text: text,
-                    image: image,
-                });
-            }
-        }
-    }
+    const scrape = new Scrape(jsonObj, jsonObj.beginProgram, page);
+    scrape.LaunchProgram();
+    // await Dataset.pushData(JSON.parse(JSON.stringify(scrape.S)));
 });
 

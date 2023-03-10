@@ -1,7 +1,7 @@
 {
   "_id": "static",
   "startUrls": ["https://demo-site.at.ispras.ru/static"],
-  "beginProgram": [1, 2],
+  "beginProgram": ["1", "2"],
   "selectors": [
     {
       "id": "1",
@@ -16,7 +16,7 @@
       "type": "foreach",
       "array": "S:links",
       "name": "S:link",
-      "program": [3, 4, 5]
+      "program": ["3", "4", "5"]
     },
     {
       "id": "3",
@@ -35,7 +35,7 @@
       "firstOperand": "S:page",
       "logicalOperation": "<=",
       "secondOperand": "3",
-      "program": [6, 7, 8, 9]
+      "program": ["6", "7", "8", "9"]
     },
     {
       "id": "6",
@@ -50,7 +50,7 @@
       "type": "foreach",
       "array": "S:cards",
       "name": "S:card",
-      "program": [10, 11]
+      "program": ["10", "11"]
     },
     {
       "id": "8",
