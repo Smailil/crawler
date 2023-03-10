@@ -30,17 +30,22 @@ class TextExtractor extends Extractor {
     }
     async GetTexts() {
         const rawSelector = this.selector.startsWith("S:") ? this.selector.substring(2) : this.selector;
-        await this.page.waitForSelector(rawSelector);
-        if (this.multiple) {
-            this.S.push([
-                this.name.substring(2),
-                await this.page.$$eval(rawSelector, (elements) => {
-                    return elements.map(element => element.textContent);
-                })
-            ]);
-        } else {
-            this.S.push([this.name.substring(2),
-                await this.page.$eval(rawSelector, element => element.textContent)]);
+        try {
+            if (this.multiple) {
+                this.S.push([
+                    this.name.substring(2),
+                    await this.page.$$eval(rawSelector, (elements) => {
+                        return elements.map(element => element.textContent);
+                    })
+                ]);
+            } else {
+                this.S.push([
+                    this.name.substring(2),
+                    await this.page.$eval(rawSelector, element => element.textContent)
+                ]);
+            }
+        } catch (error) {
+            this.S.push([this.name.substring(2), null]);
         }
     }
 }
@@ -51,18 +56,22 @@ class ImageExtractor extends Extractor {
     }
     async GetImages() {
         const rawSelector = this.selector.startsWith("S:") ? this.selector.substring(2) : this.selector;
-        await this.page.waitForSelector(rawSelector);
-        if (this.multiple) {
-            this.S.push([
-                this.name.substring(2),
-                await this.page.$$eval(rawSelector, (elements) => {
-                    return elements.map(element => element.src);
-                })
-            ]);
-        } else {
-            this.S.push([this.name.substring(2),
-                await this.page.$eval(rawSelector, element => element.src)]);
-            console.log(this.S);
+        try {
+            if (this.multiple) {
+                this.S.push([
+                    this.name.substring(2),
+                    await this.page.$$eval(rawSelector, (elements) => {
+                        return elements.map(element => element.src);
+                    })
+                ]);
+            } else {
+                this.S.push([
+                    this.name.substring(2),
+                    await this.page.$eval(rawSelector, element => element.src)
+                ]);
+            }
+        } catch (error) {
+            this.S.push([this.name.substring(2), null]);
         }
     }
 }
@@ -73,17 +82,22 @@ class UrlExtractor extends Extractor {
     }
     async GetUrls() {
         const rawSelector = this.selector.startsWith("S:") ? this.selector.substring(2) : this.selector;
-        await this.page.waitForSelector(rawSelector);
-        if (this.multiple) {
-            this.S.push([
-                this.name.substring(2),
-                await this.page.$$eval(rawSelector, (elements) => {
-                    return elements.map(element => element.href);
-                })
-            ]);
-        } else {
-            this.S.push([this.name.substring(2),
-                await this.page.$eval(rawSelector, element => element.href)]);
+        try {
+            if (this.multiple) {
+                this.S.push([
+                    this.name.substring(2),
+                    await this.page.$$eval(rawSelector, (elements) => {
+                        return elements.map(element => element.href);
+                    })
+                ]);
+            } else {
+                this.S.push([
+                    this.name.substring(2),
+                    await this.page.$eval(rawSelector, element => element.href)
+                ]);
+            }
+        } catch (error) {
+            this.S.push([this.name.substring(2), null]);
         }
     }
 }

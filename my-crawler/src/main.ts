@@ -7,7 +7,7 @@ const startUrls = ['https://demo-site.at.ispras.ru/product/1'];
 
 const crawler = new PuppeteerCrawler({
     // proxyConfiguration: new ProxyConfiguration({ proxyUrls: ['...'] }),
-    headless: false,
+    headless: true,
     requestHandler: router,
 });
 

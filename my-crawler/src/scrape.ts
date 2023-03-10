@@ -13,8 +13,8 @@ class Scrape {
         this.S = [];
     }
     // this function used to foreach the program array
-    LaunchProgram() {
-        this.program.forEach(async id => {
+    async LaunchProgram() {
+        for (const id of this.program) {
             const selector = this.json.selectors.find(selector => selector.id === id);
             switch (selector.type) {
                 case 'extractor':
@@ -35,10 +35,10 @@ class Scrape {
                             console.log("Unknown extractor type");
                     }
                     break;
-                    default:
-                        console.log(`${selector.type} is not supported`);
+                default:
+                    console.log(`${selector.type} is not supported`);
             }
-        })
+        }
     }
 }
 
