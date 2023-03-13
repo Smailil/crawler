@@ -3,7 +3,7 @@
   "retiredSessionsCount": 0,
   "sessions": [
     {
-      "id": "session_qTQQWkfqcv",
+      "id": "session_qsGCvhFLTS",
       "cookieJar": {
         "version": "tough-cookie@4.1.2",
         "storeType": "MemoryCookieStore",
@@ -16,14 +16,14 @@
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2023-03-10T18:29:39.196Z",
-      "createdAt": "2023-03-10T17:39:39.196Z",
+      "expiresAt": "2023-03-13T13:08:53.254Z",
+      "createdAt": "2023-03-13T12:18:53.254Z",
       "usageCount": 0,
       "maxUsageCount": 50,
       "errorScore": 0
     },
     {
-      "id": "session_bvT7UNfkTl",
+      "id": "session_psNeu5hsWv",
       "cookieJar": {
         "version": "tough-cookie@4.1.2",
         "storeType": "MemoryCookieStore",
@@ -31,13 +31,35 @@
         "enableLooseMode": false,
         "allowSpecialUseDomain": true,
         "prefixSecurity": "silent",
-        "cookies": []
+        "cookies": [
+          {
+            "key": "liberte_session",
+            "value": "eyJpdiI6IlJZMDdoT2RDWlBxRHY4TlF3THVOYUE9PSIsInZhbHVlIjoiTTlROVJlcjRydzh5QkliM3hIdWtmZitJeXppL2g0eC9xUnFGbERDSTRsNjJZY0NSN1hYWWFORldHUVpiYkV1M2tlUXB6R21jUEFIVVBMcysvT3Y3dFduTzRMQWJhclhLQUVzWnc3bzB5NnlQS2gvcVhWcWNNMU5QYmhWL0ZNSnoiLCJtYWMiOiIwMjgyMDlkMGZmM2NhOGU4NjYyZTQ0MzI3YzgwODhmZTVlMzIwNGI0NWQyMGI1ZGQ1YjllNjMxZjRmNzVlOGVhIn0%3D",
+            "expires": "2023-03-13T14:18:55.209Z",
+            "domain": "www.liberte-algerie.com",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": false,
+            "creation": "2023-03-13T12:18:55.352Z",
+            "lastAccessed": "2023-03-13T12:18:55.352Z"
+          },
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6ImhpWWU2OENyUlZvRVNxS1JhM2JXeUE9PSIsInZhbHVlIjoiQ0k4RGpvRjNFRndEbDM0MUFoeGk3NjFBQUpUMlNBNVB2S0lFSlcvQndKRVY5bDdJQk8zLzUwSDNZYnBKRmhWdEJKeURHVldXMzFlektTK0FkZFRlK0x5MWg2dVRIUklQY0VXZk5pWWFqYzZZZUU2MWpHVXEwR3RERURWN2pGazMiLCJtYWMiOiJkOGM0ZTg3MTQ0ODRkYzhmM2ZiMzA5YmYyYzI0MDViMTdkY2E3OWYxNmZhMTNhZDI5ZDRiY2Y3ODJhOGY3YmIxIn0%3D",
+            "expires": "2023-03-13T14:18:55.209Z",
+            "domain": "www.liberte-algerie.com",
+            "path": "/",
+            "hostOnly": false,
+            "creation": "2023-03-13T12:18:55.357Z",
+            "lastAccessed": "2023-03-13T12:18:55.357Z"
+          }
+        ]
       },
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2023-03-10T18:29:39.199Z",
-      "createdAt": "2023-03-10T17:39:39.199Z",
+      "expiresAt": "2023-03-13T13:08:53.260Z",
+      "createdAt": "2023-03-13T12:18:53.260Z",
       "usageCount": 2,
       "maxUsageCount": 50,
       "errorScore": 0

@@ -1,5 +1,6 @@
 {
   "_id": "scrapeMap",
+  "startUrls": ["https://demo-site.at.ispras.ru/product/1"],
   "beginProgram": ["1", "2", "3", "4"],
   "selectors": [
     {

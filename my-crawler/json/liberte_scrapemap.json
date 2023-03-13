@@ -1,0 +1,71 @@
+{
+  "_id": "scrapeMap",
+  "startUrls": ["https://www.liberte-algerie.com/actualite/la-csa-annonce-un-mouvement-de-protestation-376434"],
+  "beginProgram": ["1", "2", "3", "4", "5", "6", "7", "8"],
+  "selectors": [
+    {
+      "id": "1",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".header-article > p > span",
+      "name": "S:category",
+      "multiple": false
+    },
+    {
+      "id": "2",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".header-article > p",
+      "name": "S:sub_title",
+      "multiple": false
+    },
+    {
+      "id": "3",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".header-article > h1",
+      "name": "S:title",
+      "multiple": false
+    },
+    {
+      "id": "4",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".header-article > div > p > a",
+      "name": "S:author",
+      "multiple": false
+    },
+    {
+      "id": "5",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".header-article > div > p > span",
+      "name": "S:date",
+      "multiple": false
+    },
+    {
+      "id": "6",
+      "type": "extractor",
+      "subType": "image",
+      "selector": ".image-article > img",
+      "name": "S:image",
+      "multiple": true
+    },
+    {
+      "id": "7",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".module-offset > p:not([style=\"text-align: right;\"]) > strong",
+      "name": "S:intro",
+      "multiple": false
+    },
+    {
+      "id": "8",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".module-offset > p:not(:has(strong))",
+      "name": "S:text",
+      "multiple": true
+    }
+  ]
+}

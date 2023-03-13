@@ -23,7 +23,7 @@ class Scrape {
                             const text = new TextExtractor(selector, this.page, this.S);
                             await text.GetTexts();
                             break;
-                        case 'image':
+                        case 'с':
                             const image = new ImageExtractor(selector, this.page, this.S);
                             await image.GetImages();
                             break;

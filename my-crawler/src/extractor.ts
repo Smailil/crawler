@@ -45,7 +45,7 @@ class TextExtractor extends Extractor {
                 ]);
             }
         } catch (error) {
-            this.S.push([this.name.substring(2), null]);
+            this.S.push([this.name.substring(2), '']);
         }
     }
 }
@@ -71,7 +71,7 @@ class ImageExtractor extends Extractor {
                 ]);
             }
         } catch (error) {
-            this.S.push([this.name.substring(2), null]);
+            this.S.push([this.name.substring(2), '']);
         }
     }
 }
@@ -97,7 +97,7 @@ class UrlExtractor extends Extractor {
                 ]);
             }
         } catch (error) {
-            this.S.push([this.name.substring(2), null]);
+            this.S.push([this.name.substring(2), '']);
         }
     }
 }

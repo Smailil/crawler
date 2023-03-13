@@ -12,7 +12,7 @@ interface StoObject {
 }
 
 router.addDefaultHandler(async ({ page }) => {
-    const pathToFile = path.join(__dirname, '../json/static_scrapemap_v4.json');
+    const pathToFile = path.join(__dirname, '../json/liberte_scrapemap.json');
     const jsonString = fs.readFileSync(pathToFile).toString();
     const jsonObj = JSON.parse(jsonString);
 
