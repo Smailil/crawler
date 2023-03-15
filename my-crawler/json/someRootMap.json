@@ -1,28 +1,53 @@
 {
   "_id": "someRootMap",
   "startUrls": ["https://demo-site.at.ispras.ru/static"],
-  "beginProgram": ["1", "2", "3"],
+  "beginProgram": ["1", "2", "3", "4"],
   "selectors": [
     {
       "id": "1",
       "type": "extractor",
       "subType": "url",
       "selector": ".nav ul li a",
-      "name": "S:links",
+      "name": "S:link",
       "multiple": false
     },
     {
       "id": "2",
       "type": "goto",
-      "link": "S:links"
+      "link": "S:link"
     },
     {
       "id": "3",
       "type": "extractor",
       "subType": "text",
+      "selector": ".card-title",
+      "name": "S:title",
+      "multiple": false
+    },
+    {
+      "id": "4",
+      "type": "branchCondition",
+      "firstOperand": "S:title",
+      "logicalOperation": "==",
+      "secondOperand": "Asus VivBook E502NA-GO022T Dark Blue",
+      "ifProgram": ["5"],
+      "elseProgram": ["6"]
+    },
+    {
+      "id": "5",
+      "type": "extractor",
+      "subType": "text",
       "selector": ".card-text",
       "name": "S:text",
       "multiple": true
+    },
+    {
+      "id": "6",
+      "type": "extractor",
+      "subType": "image",
+      "selector": "img",
+      "name": "S:img",
+      "multiple": false
     }
   ]
 }
