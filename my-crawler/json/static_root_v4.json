@@ -70,7 +70,7 @@
     {
       "id": "11",
       "type": "include",
-      "label": "someScrapeMap"
+      "label": "static_scrapemap_v4"
     }
   ]
 }

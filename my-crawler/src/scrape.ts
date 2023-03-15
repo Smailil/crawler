@@ -2,6 +2,7 @@ import {Page} from "puppeteer";
 import {SArray, TextExtractor, ImageExtractor, UrlExtractor} from "./extractor.js";
 import {Goto} from "./goto.js";
 import {BranchCondition} from "./branchCondition.js";
+import {Scrapemap} from "./include.js";
 
 class Scrape {
     json: object
@@ -43,6 +44,10 @@ class Scrape {
                 case 'branchCondition':
                     const branchCondition = new BranchCondition(this.json, selector, this.page, this.S);
                     await branchCondition.BranchConditionDone();
+                    break;
+                case "include":
+                    const include = new Scrapemap(selector, this.page, this.S);
+                    await include.ScrapemapDone();
                     break;
                 default:
                     console.log(`${selector.type} is not supported`);

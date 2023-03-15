@@ -18,5 +18,3 @@ const jsonObj = JSON.parse(jsonString);
 await crawler.addRequests(jsonObj.startUrls);
 
 await crawler.run();
-
-export { jsonObj };

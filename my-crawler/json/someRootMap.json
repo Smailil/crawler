@@ -30,8 +30,8 @@
       "firstOperand": "S:title",
       "logicalOperation": "==",
       "secondOperand": "Asus VivBook E502NA-GO022T Dark Blue",
-      "ifProgram": ["5"],
-      "elseProgram": ["6"]
+      "ifProgram": ["5", "7"],
+      "elseProgram": ["6", "7"]
     },
     {
       "id": "5",
@@ -48,6 +48,11 @@
       "selector": "img",
       "name": "S:img",
       "multiple": false
+    },
+    {
+      "id": "7",
+      "type": "include",
+      "label": "static_scrapemap_v4"
     }
   ]
 }

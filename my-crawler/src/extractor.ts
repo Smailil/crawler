@@ -26,10 +26,10 @@ class Extractor {
     multiple: boolean;
     page: Page
     S: SArray;
-    constructor(selectorObject: ExtractorStruct, page:Page, S: SArray) {
-        this.selector = selectorObject.selector;
-        this.name = selectorObject.name;
-        this.multiple = selectorObject.multiple;
+    constructor(extractor: ExtractorStruct, page:Page, S: SArray) {
+        this.selector = extractor.selector;
+        this.name = extractor.name;
+        this.multiple = extractor.multiple;
         this.page = page;
         this.S = S;
     }
