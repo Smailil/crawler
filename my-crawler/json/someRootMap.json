@@ -1,0 +1,28 @@
+{
+  "_id": "someRootMap",
+  "startUrls": ["https://demo-site.at.ispras.ru/static"],
+  "beginProgram": ["1", "2", "3"],
+  "selectors": [
+    {
+      "id": "1",
+      "type": "extractor",
+      "subType": "url",
+      "selector": ".nav ul li a",
+      "name": "S:links",
+      "multiple": false
+    },
+    {
+      "id": "2",
+      "type": "goto",
+      "link": "S:links"
+    },
+    {
+      "id": "3",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".card-text",
+      "name": "S:text",
+      "multiple": true
+    }
+  ]
+}

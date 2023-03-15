@@ -1,6 +1,7 @@
 import {Page} from "puppeteer";
 
-type SArray = [string, string | null | (string | null)[]][];
+type ArrayInS = string | null | (string | null)[];
+type SArray = [string, ArrayInS][];
 type ExtractorStruct = {
     id: number,
     type: string,
@@ -8,6 +9,16 @@ type ExtractorStruct = {
     selector: string,
     name: string,
     multiple: boolean
+}
+
+const findToS = (searchValue: string, sArray: SArray): ArrayInS => {
+    const pair = sArray.find((entry) => entry[0] === searchValue);
+        if (pair) {
+            return pair[1];
+        }
+        else {
+            return null;
+        }
 }
 class Extractor {
     selector: string;
@@ -29,23 +40,26 @@ class TextExtractor extends Extractor {
         super(selectorObject, page, S);
     }
     async GetTexts() {
-        const rawSelector = this.selector.startsWith("S:") ? this.selector.substring(2) : this.selector;
-        try {
-            if (this.multiple) {
-                this.S.push([
-                    this.name.substring(2),
-                    await this.page.$$eval(rawSelector, (elements) => {
-                        return elements.map(element => element.textContent);
-                    })
-                ]);
-            } else {
-                this.S.push([
-                    this.name.substring(2),
-                    await this.page.$eval(rawSelector, element => element.textContent)
-                ]);
+        const rawSelector = this.selector.startsWith("S:") ?
+            findToS(this.selector.substring(2), this.S): this.selector;
+        if (!(rawSelector instanceof Array) && rawSelector) {
+            try {
+                if (this.multiple) {
+                    this.S.push([
+                        this.name.substring(2),
+                        await this.page.$$eval(rawSelector, (elements) => {
+                            return elements.map(element => element.textContent);
+                        })
+                    ]);
+                } else {
+                    this.S.push([
+                        this.name.substring(2),
+                        await this.page.$eval(rawSelector, element => element.textContent)
+                    ]);
+                }
+            } catch (error) {
+                this.S.push([this.name.substring(2), '']);
             }
-        } catch (error) {
-            this.S.push([this.name.substring(2), '']);
         }
     }
 }
@@ -55,23 +69,26 @@ class ImageExtractor extends Extractor {
         super(selectorObject, page, S);
     }
     async GetImages() {
-        const rawSelector = this.selector.startsWith("S:") ? this.selector.substring(2) : this.selector;
-        try {
-            if (this.multiple) {
-                this.S.push([
-                    this.name.substring(2),
-                    await this.page.$$eval(rawSelector, (elements) => {
-                        return elements.map(element => element.src);
-                    })
-                ]);
-            } else {
-                this.S.push([
-                    this.name.substring(2),
-                    await this.page.$eval(rawSelector, element => element.src)
-                ]);
+        const rawSelector = this.selector.startsWith("S:") ?
+            findToS(this.selector.substring(2), this.S): this.selector;
+        if (!(rawSelector instanceof Array) && rawSelector) {
+            try {
+                if (this.multiple) {
+                    this.S.push([
+                        this.name.substring(2),
+                        await this.page.$$eval(rawSelector, (elements) => {
+                            return elements.map(element => element.src);
+                        })
+                    ]);
+                } else {
+                    this.S.push([
+                        this.name.substring(2),
+                        await this.page.$eval(rawSelector, element => element.src)
+                    ]);
+                }
+            } catch (error) {
+                this.S.push([this.name.substring(2), '']);
             }
-        } catch (error) {
-            this.S.push([this.name.substring(2), '']);
         }
     }
 }
@@ -81,27 +98,30 @@ class UrlExtractor extends Extractor {
         super(selectorObject, page, S);
     }
     async GetUrls() {
-        const rawSelector = this.selector.startsWith("S:") ? this.selector.substring(2) : this.selector;
-        try {
-            if (this.multiple) {
-                this.S.push([
-                    this.name.substring(2),
-                    await this.page.$$eval(rawSelector, (elements) => {
-                        return elements.map(element => element.href);
-                    })
-                ]);
-            } else {
-                this.S.push([
-                    this.name.substring(2),
-                    await this.page.$eval(rawSelector, element => element.href)
-                ]);
+        const rawSelector = this.selector.startsWith("S:") ?
+            findToS(this.selector.substring(2), this.S): this.selector;
+        if (!(rawSelector instanceof Array) && rawSelector) {
+            try {
+                if (this.multiple) {
+                    this.S.push([
+                        this.name.substring(2),
+                        await this.page.$$eval(rawSelector, (elements) => {
+                            return elements.map(element => element.href);
+                        })
+                    ]);
+                } else {
+                    this.S.push([
+                        this.name.substring(2),
+                        await this.page.$eval(rawSelector, element => element.href)
+                    ]);
+                }
+            } catch (error) {
+                this.S.push([this.name.substring(2), '']);
             }
-        } catch (error) {
-            this.S.push([this.name.substring(2), '']);
         }
     }
 }
 
 
 
-export {Extractor, TextExtractor, ImageExtractor, UrlExtractor, SArray};
+export {Extractor, TextExtractor, ImageExtractor, UrlExtractor, SArray, findToS};

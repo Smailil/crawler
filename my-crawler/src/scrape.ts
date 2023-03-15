@@ -1,5 +1,6 @@
 import {Page} from "puppeteer";
 import {SArray, TextExtractor, ImageExtractor, UrlExtractor} from "./extractor.js";
+import {Goto} from "./goto.js";
 
 class Scrape {
     json: object
@@ -34,6 +35,10 @@ class Scrape {
                         default:
                             console.log("Unknown extractor type");
                     }
+                    break;
+                case 'goto':
+                    const goto = new Goto(selector, this.page, this.S);
+                    await goto.GotoDone();
                     break;
                 default:
                     console.log(`${selector.type} is not supported`);

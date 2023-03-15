@@ -1,14 +1,22 @@
-// For more information, see https://crawlee.dev/
 import { PuppeteerCrawler } from 'crawlee';
 import { router } from './routes.js';
+import path from "path";
+import fs from "fs";
+import {fileURLToPath} from "url";
 
-
-const startUrls = ['https://www.liberte-algerie.com/actualite/la-csa-annonce-un-mouvement-de-protestation-376434'];
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const crawler = new PuppeteerCrawler({
-    // proxyConfiguration: new ProxyConfiguration({ proxyUrls: ['...'] }),
     headless: true,
     requestHandler: router,
 });
 
-await crawler.run(startUrls);
+const pathToFile = path.join(__dirname, '../json/someRootMap.json');
+const jsonString = fs.readFileSync(pathToFile).toString();
+const jsonObj = JSON.parse(jsonString);
+
+await crawler.addRequests(jsonObj.startUrls);
+
+await crawler.run();
+
+export { jsonObj };
