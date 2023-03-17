@@ -1,25 +1,7 @@
 import {Page} from "puppeteer";
+import {SArray, ExtractorStruct} from "../auxiliary/type.js";
+import {findToS} from "../auxiliary/auxiliaryFunction.js";
 
-type ArrayInS = string | null | (string | null)[];
-type SArray = [string, ArrayInS][];
-type ExtractorStruct = {
-    id: number,
-    type: string,
-    subType: string,
-    selector: string,
-    name: string,
-    multiple: boolean
-}
-
-const findToS = (searchValue: string, sArray: SArray): ArrayInS => {
-    const pair = sArray.find((entry) => entry[0] === searchValue);
-        if (pair) {
-            return pair[1];
-        }
-        else {
-            return null;
-        }
-}
 class Extractor {
     selector: string;
     name: string;
@@ -124,4 +106,4 @@ class UrlExtractor extends Extractor {
 
 
 
-export {Extractor, TextExtractor, ImageExtractor, UrlExtractor, SArray, findToS};
+export {Extractor, TextExtractor, ImageExtractor, UrlExtractor};

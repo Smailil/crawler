@@ -1,11 +1,7 @@
 import {Page} from "puppeteer";
-import {SArray, findToS} from "./extractor.js";
+import {SArray, GotoStruct} from "../auxiliary/type.js";
+import {findToS} from "../auxiliary/auxiliaryFunction.js";
 
-type GotoStruct = {
-    id: number,
-    type: string,
-    link: string
-}
 class Goto {
     link: string;
     page: Page;

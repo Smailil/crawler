@@ -1,16 +1,12 @@
-import {findToS, SArray} from "./extractor.js";
 import {Page} from "puppeteer";
 import path from "path";
 import fs from "fs";
 import {Scrape} from "./scrape.js";
 import {Dataset} from "crawlee";
 import {fileURLToPath} from "url";
+import {SArray, IncludeStruct} from "../auxiliary/type.js";
+import {findToS} from "../auxiliary/auxiliaryFunction.js";
 
-type IncludeStruct = {
-    id: string;
-    type: string;
-    label: string;
-};
 interface StoObject {
     [key: string]: string | null | (string | null)[];
 }

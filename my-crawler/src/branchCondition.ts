@@ -1,16 +1,8 @@
 import {Page} from "puppeteer";
-import {findToS, SArray} from "./extractor.js";
 import {Scrape} from "./scrape.js";
+import {SArray, BranchConditionStruct} from "../auxiliary/type.js";
+import {findToS} from "../auxiliary/auxiliaryFunction.js";
 
-type BranchConditionStruct = {
-    id: number,
-    type: string,
-    firstOperand: string,
-    logicalOperation: string,
-    secondOperand: string,
-    ifProgram: string[],
-    elseProgram: string[]
-}
 class BranchCondition {
     firstOperand: string;
     logicalOperation: string;

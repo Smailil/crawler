@@ -34,7 +34,7 @@ class Scrape {
                             await url.GetUrls();
                             break;
                         default:
-                            console.log("Unknown extractor type");
+                            console.log("Unknown extractor auxiliary");
                     }
                     break;
                 case 'goto':
