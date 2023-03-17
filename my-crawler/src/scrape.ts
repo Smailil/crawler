@@ -5,6 +5,7 @@ import {Goto} from "./goto.js";
 import {BranchCondition} from "./branchCondition.js";
 import {Scrapemap} from "./include.js";
 import {SArray} from "../auxiliary/type.js";
+import {Foreach} from "./loop.js";
 
 class Scrape {
     browserController: PuppeteerController;
@@ -52,6 +53,10 @@ class Scrape {
                 case "include":
                     const include = new Scrapemap(this.browserController, selector, this.page, this.S);
                     await include.ScrapemapDone();
+                    break;
+                case "foreach":
+                    const foreach = new Foreach(this.browserController, this.json, selector, this.page, this.S);
+                    await foreach.ForeachDone();
                     break;
                 default:
                     console.log(`${selector.type} is not supported`);

@@ -14,7 +14,7 @@ class BranchCondition {
     json: object;
     page: Page;
     S: SArray;
-    constructor(browserController : PuppeteerController, json:Object,
+    constructor(browserController : PuppeteerController, json:object,
                 branchCondition:BranchConditionStruct, page:Page, S:SArray) {
         this.browserController = browserController;
         this.json = json;

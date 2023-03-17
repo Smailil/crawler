@@ -32,5 +32,13 @@ type IncludeStruct = {
     label: string;
 };
 
-export {ExtractorStruct, SArray, ArrayInS, BranchConditionStruct, GotoStruct, IncludeStruct};
+type ForeachStruct = {
+    id: string;
+    type: string;
+    array: string;
+    name: string;
+    program: string[];
+}
+
+export {ExtractorStruct, SArray, ArrayInS, BranchConditionStruct, GotoStruct, IncludeStruct, ForeachStruct};
 
