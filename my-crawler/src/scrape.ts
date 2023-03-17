@@ -1,6 +1,12 @@
 import {Page} from "puppeteer";
 import {PuppeteerController} from "@crawlee/browser-pool";
-import {TextExtractor, ImageExtractor, UrlExtractor} from "./extractor.js";
+import {
+    TextExtractor,
+    ImageExtractor,
+    UrlExtractor,
+    HTMLExtractor,
+    TextFromHTMLExtractor, UrlFromHTMLExtractor
+} from "./extractor.js";
 import {Goto} from "./goto.js";
 import {BranchCondition} from "./branchCondition.js";
 import {Scrapemap} from "./include.js";
@@ -38,8 +44,24 @@ class Scrape {
                             const url = new UrlExtractor(selector, this.page, this.S);
                             await url.GetUrls();
                             break;
+                        case 'html':
+                            const html = new HTMLExtractor(selector, this.page, this.S);
+                            await html.GetHTMLs();
+                            break;
                         default:
                             console.log("Unknown extractor auxiliary");
+                    }
+                    break;
+                case 'fromHTMLExtractor':
+                    switch (selector.subType) {
+                        case 'text':
+                            const text = new TextFromHTMLExtractor(selector, this.page, this.S);
+                            await text.GetTextFromHTMLs();
+                            break;
+                        case 'url':
+                            const url = new UrlFromHTMLExtractor(selector, this.page, this.S);
+                            await url.GetUrlsFromHTMLs();
+                            break;
                     }
                     break;
                 case 'goto':

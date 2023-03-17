@@ -36,8 +36,8 @@ class Foreach {
                 S.push([this.name.substring(2), element]);
                 const newPage = await this.browserController.newPage();
                 await newPage.goto(url);
-                const scraper = new Scrape(this.browserController, this.json, this.program, newPage, S);
-                await scraper.LaunchProgram();
+                const scrape = new Scrape(this.browserController, this.json, this.program, newPage, S);
+                await scrape.LaunchProgram();
             }
         }
         this.S = [];

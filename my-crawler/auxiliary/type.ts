@@ -10,6 +10,16 @@ type ExtractorStruct = {
     multiple: boolean
 }
 
+type FromHTMLExtractorStruct = {
+    id: number,
+    type: string,
+    subType: string,
+    html: string,
+    selector: string,
+    name: string,
+    multiple: boolean
+}
+
 type BranchConditionStruct = {
     id: number,
     type: string,
@@ -40,5 +50,10 @@ type ForeachStruct = {
     program: string[];
 }
 
-export {ExtractorStruct, SArray, ArrayInS, BranchConditionStruct, GotoStruct, IncludeStruct, ForeachStruct};
+interface StoObject {
+    [key: string]: string | null | (string | null)[];
+}
+
+export {ExtractorStruct, SArray, ArrayInS, BranchConditionStruct, GotoStruct,
+    IncludeStruct, ForeachStruct, FromHTMLExtractorStruct, StoObject};
 

@@ -5,6 +5,7 @@
     "description": "This is an example of a Crawlee project.",
     "dependencies": {
         "crawlee": "^3.0.0",
+        "jsdom": "^21.1.1",
         "puppeteer": "*"
     },
     "devDependencies": {

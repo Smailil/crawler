@@ -10,7 +10,7 @@ export const router = createPuppeteerRouter();
 
 
 router.addDefaultHandler(async ({ browserController, page }) => {
-    const pathToFile = path.join(__dirname, '../json/someRootMap.json');
+    const pathToFile = path.join(__dirname, '../json/tagesschau_root.json');
     const jsonString = fs.readFileSync(pathToFile).toString();
     const jsonObj = JSON.parse(jsonString);
 

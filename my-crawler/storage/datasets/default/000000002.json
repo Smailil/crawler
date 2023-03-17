@@ -1,7 +1,25 @@
 {
-	"img": "https://demo-site.at.ispras.ru/cart.png",
-	"title": "Dell Latitude 5580",
-	"text": "Dell Latitude 5580, 15.6\", FHD, Core i5-7300U, 16GB, 256GB SSD, Linux + Windows 10 Home",
-	"price": "₽ 1178.19",
-	"URL": "https://demo-site.at.ispras.ru/product/2"
+	"topline": "Haushaltsstreit der Ampel",
+	"title": "Lindner, der Baumeister",
+	"time": "Stand: 17.03.2023 16:11 Uhr",
+	"text": [
+		"Finanzminister Lindner hat seine Kollegen zum Sparen aufgerufen. Damit meint er auch Scholz und die teuren Pläne zur Erweiterung des Kanzleramts. Dabei plant Lindner selbst einen teuren Neubau.",
+		"Aus Sicht des Kanzleramts hatte Finanzminister Christian Lindner am späten Mittwochabend wohl einen Auftritt mit Wumms. In der ARD-Sendung Maischberger schlug der FDP-Politiker vor, geplante bauliche Erweiterungen im Kanzleramt abzusagen. \"Ich glaube, dass in Zeiten von mehr Homeoffice und ortsflexiblem Arbeiten ein mindestens 800 Millionen teurer Neubau neben dem Kanzleramt entbehrlich ist\" sagte Lindner.",
+		"Er bezog sich offenbar auf ein Bauvorhaben in der Regierungszentrale, das rund 777 Millionen Euro kosten soll. Mit dem Kanzler oder der Ampelkoalition war dieser Vorstoß offenbar nicht abgesprochen.",
+		"Im Gegenteil, in der SPD und im zuständigen Haushaltsausschuss im Bundestag rieb man sich verwundert die Augen, denn Lindner plant selbst einen teuren Neubau.",
+		"Noch am Mittwochnachmittag war der Parlamentarische Staatssekretär im Finanzministerium, Florian Toncar, zu Gast im Haushaltsauschuss. Nach Informationen des ARD-Hauptstadtstudios hat er dabei die Idee, beim Erweiterungsbau im Kanzleramt zu sparen, mit keinem Wort erwähnt. Stattdessen sprach FDP-Politiker Toncar im Haushaltsausschuss aber über zwei große Bauvorhaben des Bundesfinanzministeriums. Die entsprechende Vorlage aus dem Ausschuss liegt dem ARD-Hauptstadtstudio vor.",
+		"Eines der Vorhaben ist mit dem Erweiterungsbau am Kanzleramt vergleichbar. Direkt gegenüber des Finanzministeriums soll für rund 500 Millionen Euro ein Neubau mit 910 Büroarbeitsplätzen entstehen. Auf seiner Website wirbt das BMF vollmundig, in Berlins Mitte entstehe ein modernes Verwaltungsgebäude, das den Energieeffizienzstandard Bund 40 erfülle und die klimapolitischen Ziele der Bundesregierung unterstreiche. Der Erweiterungsbau diene dazu, die Beschäftigten des BMF zentral unterzubringen. Bislang seien sie an sechs weiteren Standorten in der Hauptstadt untergebracht.",
+		"Schaut man auf den Auftritt von Lindner am Mittwochabend bei Maischberger wirkt diese Begründung nicht überzeugend. Lindner verwies bei seiner Forderung gegen das Kanzleramt auf die große Zahl an Mitarbeitenden, die inzwischen mobil arbeiten. Im Finanzministerium gebe es 65 Prozent \"ortsflexibles Arbeiten\". Daraus folge aber auch, dass man Büroflächen anders nutzen und begrenzen könne. \"Warum dann also ein so teurer Neubau?\", fragte Lindner im Gespräch mit Sandra Maischberger.",
+		"Unter Haushaltspolitikern löste die Aussage Verwunderung aus. Die Linken-Obfrau im Haushaltsausschuss, Gesine Lötzsch, sagte dem ARD-Hauptstadtstudio, bisher habe es immer geheißen, ortsflexibles Arbeiten spare in den Ministerien keine Büros ein. \"Aber wenn Lindner das so sieht, kann er doch seinen Neubau auch streichen.\"",
+		"Auch in der SPD ist man nicht begeistert von Lindners Talkshow-Auftritt. Man gehe davon aus, dass die aktuellen Bauplanungen der Bundesregierung Bestand hätten, sagte SPD-Obmann Dennis Rohde dem ARD-Hauptstadtstudio. Der Bundesfinanzminister habe die zuständigen Parlamentarier jedenfalls bis heute über keine Anpassung informiert.",
+		"Aus Ampelkreisen heißt es außerdem, man sei auch aus strategischen Gründen verwundert über den direkten Vorstoß gegen den Kanzler. Dieser habe in der Haushaltsdebatte bisher eigentlich hinter Lindner gestanden. Dem Finanzminister ist das offenbar auch bewusst. Bei Maischberger sagte er mit Blick auf Scholz noch: \"Ich glaube, der wird missvergnügt sein, dass ich das jetzt hier vorgeschlagen habe. Aber das ist mein Job.\"",
+		"Aus dem Ministerium hieß es am Donnerstagabend, grundsätzlich sollten sämtliche Vorhaben der Bundesregierung im Rahmen der Haushaltsberatung kritisch geprüft werden. Ob das auch für die eigenen Bauplanungen gilt, ließ das Ministerium gegenüber dem ARD-Hauptstadtstudio zunächst offen.",
+		"In der Regierungspressekonferenz am Freitagmittag verwies eine Sprecherin Lindners auf Aussagen des Ministers, dass Vorhaben mit Blick auf ihre Sinnhaftigkeit und Wirtschaftlichkeit geprüft werden müssten. Dies umfasse natürlich auch die Vorhaben des Finanzministeriums. Von so einer Prüfung war nach Teilnehmerangaben am Mittwoch im Haushaltsausschuss in Bezug auf das Projekt aber noch keine Rede."
+	],
+	"tags": [
+		"Haushaltsstreit",
+		"Ampel Koalition"
+	],
+	"author": "Von Moritz Rödle, ARD-Hauptstadtstudio",
+	"URL": "https://www.tagesschau.de/inland/innenpolitik/kanzleramt-haushaltsstreit-101.html"
 }

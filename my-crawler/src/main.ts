@@ -11,7 +11,7 @@ const crawler = new PuppeteerCrawler({
     requestHandler: router,
 });
 
-const pathToFile = path.join(__dirname, '../json/someRootMap.json');
+const pathToFile = path.join(__dirname, '../json/tagesschau_root.json');
 const jsonString = fs.readFileSync(pathToFile).toString();
 const jsonObj = JSON.parse(jsonString);
 

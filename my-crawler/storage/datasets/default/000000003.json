@@ -1,7 +1,22 @@
 {
-	"img": "https://demo-site.at.ispras.ru/cart.png",
-	"title": "IdeaTab A3500-H",
-	"text": "Blue, 7\", IPS, Quad-Core 1.3GHz, 8GB, 3G, Android 4.2",
-	"price": "₽ 148.99",
-	"URL": "https://demo-site.at.ispras.ru/product/3"
+	"topline": "Rentenreform in Frankreich",
+	"title": "Misstrauensanträge gegen Regierung gestellt",
+	"time": "Stand: 17.03.2023 16:02 Uhr",
+	"text": [
+		"Im Streit um die französische Rentenreform hat die Opposition zwei Misstrauensanträge gegen die Regierung eingereicht. Ein Erfolg gilt aber als unwahrscheinlich. Die Proteste im Land gehen weiter.",
+		"Im französischen Parlament sind im Streit um die Rentenreform zwei Misstrauensanträge gegen die Regierung eingereicht worden. Der Antrag der liberalen Fraktion Liot wurde nach Angaben von deren Chef, Bertrand Pancher, auch von Abgeordneten des linken Bündnisses Nupes unterzeichnet. Auch der rechtsnationale Rassemblement National von Marine Le Pen stellte einen Misstrauensantrag. Abgestimmt werden soll darüber voraussichtlich am Montag.",
+		"Um erfolgreich zu sein, braucht ein Misstrauensantrag die absolute Mehrheit der Abgeordneten. In diesem Fall wäre die Reform abgelehnt und die Regierung müsste zurücktreten. Präsident Macron könnte dann einen neuen Premierminister ernennen oder Neuwahlen ausrufen. Allerdings gilt ein Erfolg als unwahrscheinlich. Bekommt der Misstrauensantrag nicht die erforderliche Mehrheit, ist die Reform verabschiedet.",
+		"Seit Donnerstagabend gab es in vielen Orten Frankreichs Proteste gegen die Rentenreform und wie sie verabschiedet werden soll, die sich auch am Freitag fortsetzten. In Paris wurde am Morgen die Stadtautobahn zeitweise blockiert. Die Gewerkschaft CGT hatte dazu aufgerufen. Auch in Rennes und Brest blockierten Demonstranten Straßen und Kreisverkehre, wie etwa die Zeitung \"Le Parisien\" berichtete.",
+		"Schülerinnen und Schüler und Studierende blockierten Schulen und Universitäten. Einige Raffinerien kündigten erneute oder verlängerte Streiks an, die Versorgung der Tankstellen mit Kraftstoff kam bislang aber nicht ins Stocken. Auch Behinderungen im Nah- und Bahnverkehr hielten sich in Grenzen. Die streikende Pariser Müllabfuhr wurde vom Polizeipräfekten zum Dienst verpflichtet, da sich in den Straßen 9000 Tonnen Müll anhäuften.",
+		"Bei teils gewalttätigen Protesten am Donnerstag waren in Paris laut Polizei 217 Menschen festgenommen worden. Auch in anderen französischen Städten kam es zu Ausschreitungen bei Demonstrationen. In Marseille verwüsteten Demonstranten mehrere Geschäfte und setzten Müllbehälter in Brand. Zusammenstöße zwischen Demonstranten und Sicherheitskräften gab es nach Angaben von Reportern der französischen Nachrichtenagentur AFP auch in Nantes, Rennes, Lille, Grenoble und Lyon.",
+		"Ein zentraler Punkt der Reform ist der Anstieg des Renteneintrittsalters auf 64 Jahre. Derzeit liegt das Renteneintrittsalter in Frankreich bei 62 Jahren. Tatsächlich beginnt der Ruhestand im Schnitt aber später: Wer für eine volle Rente nicht lange genug eingezahlt hat, arbeitet länger.",
+		"Mit 67 Jahren gibt es dann unabhängig von der Einzahldauer Rente ohne Abschlag - dies will die Regierung beibehalten, auch wenn die Zahl der nötigen Einzahljahre für eine volle Rente schneller steigen soll als bisher vorgesehen. Die monatliche Mindestrente will sie auf etwa 1200 Euro hochsetzen. Mit der Reform will die Regierung eine drohende Lücke in der Rentenkasse schließen."
+	],
+	"tags": [
+		"Frankreich",
+		"Rentenreform",
+		"Misstrauensantrag"
+	],
+	"author": "",
+	"URL": "https://www.tagesschau.de/ausland/europa/frankreich-rentenreform-misstrauensantrag-101.html"
 }

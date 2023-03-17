@@ -1,7 +1,26 @@
 {
-	"img": "https://demo-site.at.ispras.ru/cart.png",
-	"title": "Asus VivoBook E502NA-GO022T Dark Blue",
-	"text": "Asus VivoBook E502NA-GO022T Dark Blue, 15.6\", HD, Pentium N4200 1.1GHz, 4GB, 128GB SSD, Windows 10 Home, En/Ru kbd",
-	"price": "₽ 399.99",
-	"URL": "https://demo-site.at.ispras.ru/product/1"
+	"topline": "Wahlrechtsreform im Bundestag",
+	"title": "Schimpfen, schreien, Finger zeigen",
+	"time": "Stand: 17.03.2023 16:43 Uhr",
+	"text": [
+		"Mehrmals musste Parlamentspräsidentin Bas um Ruhe bitten: Die Aussprache im Bundestag zur Wahlrechtsreform verlief äußerst hitzig. Zwischen CSU und Linkspartei offenbarte sich dabei eine Allianz - die AfD feixte.",
+		"Wenn die Linke demonstrativ, lange und anhaltend für die CSU klatscht, dann muss wirklich was passiert sein. Die Debatte über das neue Wahlrecht hatte am Morgen genau dafür gesorgt.",
+		"Linke und CSU sahen sich gleichermaßen von der Ampelregierung verraten. Das hörte sich beim CSU-Landesgruppenchef Alexander Dobrindt dann so an: \"Sie wollen die Linke aus dem Parlament drängen - und mit einer offensichtlichen Freude das Existenzrecht der CSU infrage stellen.\"",
+		"Die Ampelkoalition hatte die Reform auf den letzten Metern noch einmal geändert. Die Grundmandatsklausel fällt weg. Das heißt, wenn eine Partei nicht bundesweit fünf Prozent der Stimmen erreicht, kommt sie nicht in den Bundestag. Ohne Ausnahme. Die Ausnahme galt bislang, wenn die Partei zwar unter fünf Prozent lag, aber mindestens drei Direktmandate erreichte.",
+		"Die Linke sitzt nur deswegen im aktuellen Bundestag. Und die CSU ist bei der vergangenen Wahl auf gerade mal 5,2 Prozent bundesweit gekommen. Läge sie unter fünf Prozent, würde kein einziger Abgeordneter mehr in den Bundestag einziehen, selbst wenn er oder sie ein Direktmandat im Wahlkreis gewonnen hat.",
+		"Ja, so sei das halt, sagte dazu sinngemäß die Fraktionschefin der Grünen, Britta Haßelmann: \"In 15 Bundesländern tritt diese CSU nicht an. Es kann nicht sein, dass die CSU als Regionalpartei dem Deutschen Bundestag diktiert, wie das Wahlrecht aussieht.\"",
+		"Auf die CSU schossen sich auch die Redner der FDP ein. Noch jeder Versuch einer Wahlrechtsreform sei am Ende an der CSU gescheitert, betonte der stellvertretende Fraktionschef der Liberalen, Konstantin Kuhle. \"Die CSU hat Norbert Lammert und Wolfgang Schäuble das Wahlrecht versaut. Sie wird nicht die Wahlrechtsreform der Ampel versauen\", sagte er unter Anspielung auf die Bemühungen der damaligen Bundestagspräsidenten, die beide CDU-Mitglieder sind.",
+		"Auch die SPD zählte auf, wie oft sie - am Ende ohne Erfolg - auf die Union zugegangen sei. Den Vorwurf, die Ampel wolle zwei Oppositionsparteien eliminieren, ließ aber auch Leni Breymaier nicht gelten.",
+		"Sie hatte stattdessen einen guten Rat für die Abgeordneten der Linksfraktion. \"Also ich wünsche mir von der Linken ein bisschen mehr Selbstbewusstsein. Arsch hoch, dann kommt ihr auch über die fünf Prozent\", sagte Breymaier.",
+		"Schimpfen, schreien, Finger zeigen - die AfD schaute dieser Debatte eher belustigt zu. Stefan Brandner bemerkte nach einer erneut lautstarken Rede der SPD: \"Ich darf festhalten, sie haben vom ersten Moment an hier rumgebrüllt. Ich hab mal gelernt, wer schreit, der lügt.\"",
+		"Aufgewühlt, laut, emotional - mehrmals musste Parlamentspräsidentin Bärbel Bas um Ruhe bitten. Denn auch als Jan Korte, der parlamentarische Geschäftsführer der Linksfraktion, der Ampelkoalition eine \"bigotte Arroganz\" vorwarf, wurde es wieder laut.",
+		"Korte warf der Regierung vor, \"hier hingerotzt mal zwei Oppositionsparteien zu eliminieren\". Wenn aber die Regierungsparteien in Ungarn und Polen sich ihre Wahlrechte zimmern würden, dann würden die Ampelkoalitionäre sich die \"Finger wund twittern\" und eine Mahnwache abhalten. \"Wir sehen uns in Karlsruhe!\", rief Korte der Regierungsbank zu.",
+		"Demonstratives Klatschen gab es von der Union für die Linke. Ganz vorn war CSU-Landesgruppenchef Dobrindt, der unmittelbar nach der Abstimmung den Gang vor das Bundesverfassungsgericht ankündigte."
+	],
+	"tags": [
+		"Wahlrechtsreform",
+		"Bundestag"
+	],
+	"author": "Von Anita Fünffinger, ARD-Hauptstadtstudio",
+	"URL": "https://www.tagesschau.de/inland/innenpolitik/wahlrecht-reform-bundestag-debatte-101.html"
 }

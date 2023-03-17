@@ -4,13 +4,10 @@ import fs from "fs";
 import {Scrape} from "./scrape.js";
 import {Dataset} from "crawlee";
 import {fileURLToPath} from "url";
-import {SArray, IncludeStruct} from "../auxiliary/type.js";
+import {SArray, IncludeStruct, StoObject} from "../auxiliary/type.js";
 import {findToS} from "../auxiliary/auxiliaryFunction.js";
 import {PuppeteerController} from "@crawlee/browser-pool";
 
-interface StoObject {
-    [key: string]: string | null | (string | null)[];
-}
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -36,6 +33,7 @@ class Scrapemap {
 
         const scrape = new Scrape(this.browserController, jsonObj, jsonObj.beginProgram, this.page);
         await scrape.LaunchProgram();
+
         scrape.S.push(["URL", this.page.url()]);
         const SObject: StoObject = scrape.S.reduce((acc: StoObject, [key, value]) => {
             acc[key] = value;
