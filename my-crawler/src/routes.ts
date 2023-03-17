@@ -9,14 +9,12 @@ export const router = createPuppeteerRouter();
 
 
 
-router.addDefaultHandler(async ({ browserController }) => {
+router.addDefaultHandler(async ({ browserController, page }) => {
     const pathToFile = path.join(__dirname, '../json/someRootMap.json');
     const jsonString = fs.readFileSync(pathToFile).toString();
     const jsonObj = JSON.parse(jsonString);
 
-    const page = await browserController.newPage();
-
-    const scrape = new Scrape(jsonObj, jsonObj.beginProgram, page);
+    const scrape = new Scrape(browserController, jsonObj, jsonObj.beginProgram, page);
     await scrape.LaunchProgram();
 });
 

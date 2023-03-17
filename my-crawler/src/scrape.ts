@@ -1,15 +1,19 @@
 import {Page} from "puppeteer";
-import {SArray, TextExtractor, ImageExtractor, UrlExtractor} from "./extractor.js";
+import {PuppeteerController} from "@crawlee/browser-pool";
+import {TextExtractor, ImageExtractor, UrlExtractor} from "./extractor.js";
 import {Goto} from "./goto.js";
 import {BranchCondition} from "./branchCondition.js";
 import {Scrapemap} from "./include.js";
+import {SArray} from "../auxiliary/type.js";
 
 class Scrape {
+    browserController: PuppeteerController;
     json: object
     program: string[];
     page: Page;
     S: SArray;
-    constructor(json: object, program: string[], page: Page, S?: SArray) {
+    constructor(browserController : PuppeteerController, json: object, program: string[], page: Page, S?: SArray) {
+        this.browserController = browserController;
         this.json = json;
         this.program = program;
         this.page = page;
@@ -42,11 +46,11 @@ class Scrape {
                     await goto.GotoDone();
                     break;
                 case 'branchCondition':
-                    const branchCondition = new BranchCondition(this.json, selector, this.page, this.S);
+                    const branchCondition = new BranchCondition(this.browserController, this.json, selector, this.page, this.S);
                     await branchCondition.BranchConditionDone();
                     break;
                 case "include":
-                    const include = new Scrapemap(selector, this.page, this.S);
+                    const include = new Scrapemap(this.browserController, selector, this.page, this.S);
                     await include.ScrapemapDone();
                     break;
                 default:

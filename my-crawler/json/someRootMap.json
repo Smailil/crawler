@@ -1,6 +1,6 @@
 {
   "_id": "someRootMap",
-  "startUrls": ["https://demo-site.at.ispras.ru/static"],
+  "startUrls": ["https://demo-site.at.ispras.ru/static", "https://demo-site.at.ispras.ru/allinone"],
   "beginProgram": ["1", "2", "3", "4"],
   "selectors": [
     {

@@ -1,0 +1,9 @@
+{
+	"id": "DK7QgVuYQrISNhR",
+	"json": "{\"id\":\"DK7QgVuYQrISNhR\",\"url\":\"https://demo-site.at.ispras.ru/allinone\",\"loadedUrl\":\"https://demo-site.at.ispras.ru/allinone\",\"uniqueKey\":\"https://demo-site.at.ispras.ru/allinone\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2023-03-17T09:37:47.628Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://demo-site.at.ispras.ru/allinone",
+	"url": "https://demo-site.at.ispras.ru/allinone"
+}

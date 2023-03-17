@@ -25,7 +25,7 @@
       "subType": "text",
       "selector": ".card-text",
       "name": "S:text",
-      "multiple": true
+      "multiple": false
     },
     {
       "id": "4",

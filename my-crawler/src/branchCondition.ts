@@ -2,6 +2,7 @@ import {Page} from "puppeteer";
 import {Scrape} from "./scrape.js";
 import {SArray, BranchConditionStruct} from "../auxiliary/type.js";
 import {findToS} from "../auxiliary/auxiliaryFunction.js";
+import {PuppeteerController} from "@crawlee/browser-pool";
 
 class BranchCondition {
     firstOperand: string;
@@ -9,10 +10,13 @@ class BranchCondition {
     secondOperand: string;
     ifProgram: string[];
     elseProgram: string[];
+    browserController: PuppeteerController;
     json: object;
     page: Page;
     S: SArray;
-    constructor(json:Object, branchCondition:BranchConditionStruct, page:Page, S:SArray) {
+    constructor(browserController : PuppeteerController, json:Object,
+                branchCondition:BranchConditionStruct, page:Page, S:SArray) {
+        this.browserController = browserController;
         this.json = json;
         this.page = page;
         this.S = S;
@@ -30,61 +34,61 @@ class BranchCondition {
         switch (this.logicalOperation) {
             case "==":
                 if (rawFirstOperand === rawSecondOperand) {
-                    const scrape = new Scrape(this.json, this.ifProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.ifProgram, this.page, this.S);
                     await scrape.LaunchProgram();
                 }
                 else {
-                    const scrape = new Scrape(this.json, this.elseProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.elseProgram, this.page, this.S);
                     await scrape.LaunchProgram();
                 }
                 break;
             case "!=":
                 if (rawFirstOperand !== rawSecondOperand) {
-                    const scrape = new Scrape(this.json, this.ifProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.ifProgram, this.page, this.S);
                     await scrape.LaunchProgram();
                 }
                 else {
-                    const scrape = new Scrape(this.json, this.elseProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.elseProgram, this.page, this.S);
                     await scrape.LaunchProgram();
                 }
                 break;
             case ">":
                 if (Number(rawFirstOperand) > Number(rawSecondOperand)) {
-                    const scrape = new Scrape(this.json, this.ifProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.ifProgram, this.page, this.S);
                     await scrape.LaunchProgram();
                 }
                 else {
-                    const scrape = new Scrape(this.json, this.elseProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.elseProgram, this.page, this.S);
                     await scrape.LaunchProgram();
                 }
                 break;
             case "<":
                 if (Number(rawFirstOperand) < Number(rawSecondOperand)) {
-                    const scrape = new Scrape(this.json, this.ifProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.ifProgram, this.page, this.S);
                     await scrape.LaunchProgram();
                 }
                 else {
-                    const scrape = new Scrape(this.json, this.elseProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.elseProgram, this.page, this.S);
                     await scrape.LaunchProgram();
                 }
                 break;
             case ">=":
                 if (Number(rawFirstOperand) >= Number(rawSecondOperand)) {
-                    const scrape = new Scrape(this.json, this.ifProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.ifProgram, this.page, this.S);
                     await scrape.LaunchProgram();
                 }
                 else {
-                    const scrape = new Scrape(this.json, this.elseProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.elseProgram, this.page, this.S);
                     await scrape.LaunchProgram();
                 }
                 break;
             case "<=":
                 if (Number(rawFirstOperand) <= Number(rawSecondOperand)) {
-                    const scrape = new Scrape(this.json, this.ifProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.ifProgram, this.page, this.S);
                     await scrape.LaunchProgram();
                 }
                 else {
-                    const scrape = new Scrape(this.json, this.elseProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.elseProgram, this.page, this.S);
                     await scrape.LaunchProgram();
                 }
                 break;

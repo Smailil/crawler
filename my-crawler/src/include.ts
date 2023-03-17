@@ -6,6 +6,7 @@ import {Dataset} from "crawlee";
 import {fileURLToPath} from "url";
 import {SArray, IncludeStruct} from "../auxiliary/type.js";
 import {findToS} from "../auxiliary/auxiliaryFunction.js";
+import {PuppeteerController} from "@crawlee/browser-pool";
 
 interface StoObject {
     [key: string]: string | null | (string | null)[];
@@ -16,9 +17,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 class Scrapemap {
     label: string;
+    browserController: PuppeteerController;
     page: Page;
     S: SArray;
-    constructor(include: IncludeStruct, page: Page, S: SArray) {
+    constructor(browserController : PuppeteerController, include: IncludeStruct, page: Page, S: SArray) {
+        this.browserController = browserController;
         this.label = include.label;
         this.page = page;
         this.S = S;
@@ -31,7 +34,7 @@ class Scrapemap {
         const jsonString = fs.readFileSync(pathToFile).toString();
         const jsonObj = JSON.parse(jsonString);
 
-        const scrape = new Scrape(jsonObj, jsonObj.beginProgram, this.page);
+        const scrape = new Scrape(this.browserController, jsonObj, jsonObj.beginProgram, this.page);
         await scrape.LaunchProgram();
         scrape.S.push(["URL", this.page.url()]);
         const SObject: StoObject = scrape.S.reduce((acc: StoObject, [key, value]) => {
