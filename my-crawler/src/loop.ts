@@ -1,19 +1,19 @@
-import {PuppeteerController} from "@crawlee/browser-pool";
 import {Page} from "puppeteer";
 import {ForeachStruct, SArray} from "../auxiliary/type.js";
 import {findToS} from "../auxiliary/auxiliaryFunction.js";
 import {Scrape} from "./scrape.js";
+import PageManager from "./pageManager.js";
 
 class Foreach {
     array: string;
     name: string;
     program: string[];
-    browserController: PuppeteerController;
+    browserController: PageManager;
     json: object;
     page: Page;
     S: SArray;
 
-    constructor(browserController: PuppeteerController, json: object, foreach: ForeachStruct,
+    constructor(browserController: PageManager, json: object, foreach: ForeachStruct,
                 page: Page, S: SArray) {
         this.browserController = browserController;
         this.json = json;
@@ -28,7 +28,7 @@ class Foreach {
         const rawArray = this.array.startsWith("S:") ?
             findToS(this.array.substring(2), this.S): this.array;
         const url = this.page.url();
-        await this.page.close()
+        await this.browserController.closePage(this.page);
         if(rawArray && (rawArray instanceof Array)) {
             for(const element of rawArray) {
                 // copy S array and add element to it

@@ -1,0 +1,26 @@
+{
+  "_id": "newStatic_scrapemap_less500",
+  "beginProgram": ["1", "2"],
+  "selectors": [
+    {
+      "id": "1",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".card-title",
+      "name": "S:title",
+      "multiple": false,
+      "textManipulation": {
+      }
+    },
+    {
+      "id": "2",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".text-primary",
+      "name": "S:price",
+      "multiple": false,
+      "textManipulation": {
+      }
+    }
+  ]
+}

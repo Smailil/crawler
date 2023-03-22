@@ -1,6 +1,15 @@
 type ArrayInS = string | null | (string | null)[];
 type SArray = [string, ArrayInS][];
 
+type TextManipulation = {
+    trim?: boolean,
+    replaceText?: string,
+    replacementText?: string,
+    textPrefix?: string,
+    textSuffix?: string,
+    regExpText?: string
+}
+
 type ExtractorStruct = {
     id: number,
     type: string,
@@ -8,6 +17,7 @@ type ExtractorStruct = {
     selector: string,
     name: string,
     multiple: boolean
+    textManipulation: TextManipulation
 }
 
 type FromHTMLExtractorStruct = {
@@ -17,7 +27,8 @@ type FromHTMLExtractorStruct = {
     html: string,
     selector: string,
     name: string,
-    multiple: boolean
+    multiple: boolean,
+    textManipulation: TextManipulation
 }
 
 type BranchConditionStruct = {
@@ -28,6 +39,7 @@ type BranchConditionStruct = {
     secondOperand: string,
     ifProgram: string[],
     elseProgram: string[]
+    typeOfOperand: string
 }
 
 type GotoStruct = {
@@ -54,6 +66,6 @@ interface StoObject {
     [key: string]: string | null | (string | null)[];
 }
 
-export {ExtractorStruct, SArray, ArrayInS, BranchConditionStruct, GotoStruct,
+export {ExtractorStruct, SArray, ArrayInS, BranchConditionStruct, GotoStruct, TextManipulation,
     IncludeStruct, ForeachStruct, FromHTMLExtractorStruct, StoObject};
 

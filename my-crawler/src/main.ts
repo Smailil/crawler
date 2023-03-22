@@ -7,11 +7,12 @@ import {fileURLToPath} from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const crawler = new PuppeteerCrawler({
+    requestHandlerTimeoutSecs: 30000,
     headless: true,
     requestHandler: router,
 });
 
-const pathToFile = path.join(__dirname, '../json/tagesschau_root.json');
+const pathToFile = path.join(__dirname, '../json/newStatic_root.json');
 const jsonString = fs.readFileSync(pathToFile).toString();
 const jsonObj = JSON.parse(jsonString);
 

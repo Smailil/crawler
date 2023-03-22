@@ -19,6 +19,7 @@ class Goto {
                 await this.page.goto(rawLink, {waitUntil: "networkidle2"});
             } catch (error) {
                 console.log(error);
+                console.log(rawLink);
             }
         }
     }

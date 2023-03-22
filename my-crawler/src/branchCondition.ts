@@ -2,7 +2,7 @@ import {Page} from "puppeteer";
 import {Scrape} from "./scrape.js";
 import {SArray, BranchConditionStruct} from "../auxiliary/type.js";
 import {findToS} from "../auxiliary/auxiliaryFunction.js";
-import {PuppeteerController} from "@crawlee/browser-pool";
+import PageManager from "./pageManager.js";
 
 class BranchCondition {
     firstOperand: string;
@@ -10,11 +10,12 @@ class BranchCondition {
     secondOperand: string;
     ifProgram: string[];
     elseProgram: string[];
-    browserController: PuppeteerController;
+    typeOfOperand: string;
+    browserController: PageManager;
     json: object;
     page: Page;
     S: SArray;
-    constructor(browserController : PuppeteerController, json:object,
+    constructor(browserController : PageManager, json:object,
                 branchCondition:BranchConditionStruct, page:Page, S:SArray) {
         this.browserController = browserController;
         this.json = json;
@@ -25,14 +26,39 @@ class BranchCondition {
         this.secondOperand = branchCondition.secondOperand;
         this.ifProgram = branchCondition.ifProgram;
         this.elseProgram = branchCondition.elseProgram;
+        this.typeOfOperand = branchCondition.typeOfOperand;
     }
     async BranchConditionDone() {
-        const rawFirstOperand = this.firstOperand.startsWith("S:") ? 
+        const withoutSFirstOperand = this.firstOperand.startsWith("S:") ?
             findToS(this.firstOperand.substring(2), this.S): this.firstOperand;
-        const rawSecondOperand = this.secondOperand.startsWith("S:") ?
+        const withoutSSecondOperand = this.secondOperand.startsWith("S:") ?
             findToS(this.secondOperand.substring(2), this.S): this.secondOperand;
-        if(rawFirstOperand && rawSecondOperand &&
-            !(rawFirstOperand instanceof Array) && !(rawSecondOperand instanceof Array)) {
+        if(withoutSFirstOperand && withoutSSecondOperand &&
+            !(withoutSFirstOperand instanceof Array) && !(withoutSSecondOperand instanceof Array)) {
+            let rawFirstOperand;
+            let rawSecondOperand;
+            switch (this.typeOfOperand) {
+                case "string":
+                    rawFirstOperand = withoutSFirstOperand;
+                    rawSecondOperand = withoutSSecondOperand;
+                    break;
+                case "integer":
+                    rawFirstOperand = parseInt(withoutSFirstOperand);
+                    rawSecondOperand = parseInt(withoutSSecondOperand);
+                    break;
+                case "float":
+                    rawFirstOperand = parseFloat(withoutSFirstOperand);
+                    rawSecondOperand = parseFloat(withoutSSecondOperand);
+                    break;
+                case "date":
+                    rawFirstOperand = Date.parse(withoutSFirstOperand);
+                    rawSecondOperand = Date.parse(withoutSSecondOperand);
+                    break;
+                default:
+                    rawFirstOperand = withoutSFirstOperand;
+                    rawSecondOperand = withoutSSecondOperand;
+                    console.log("Type of operand is not supported");
+            }
             switch (this.logicalOperation) {
                 case "==":
                     if (rawFirstOperand === rawSecondOperand) {
@@ -53,7 +79,7 @@ class BranchCondition {
                     }
                     break;
                 case ">":
-                    if (Number(rawFirstOperand) > Number(rawSecondOperand)) {
+                    if (rawFirstOperand > rawSecondOperand) {
                         const scrape = new Scrape(this.browserController, this.json, this.ifProgram, this.page, this.S);
                         await scrape.LaunchProgram();
                     } else {
@@ -62,7 +88,7 @@ class BranchCondition {
                     }
                     break;
                 case "<":
-                    if (Number(rawFirstOperand) < Number(rawSecondOperand)) {
+                    if (rawFirstOperand < rawSecondOperand) {
                         const scrape = new Scrape(this.browserController, this.json, this.ifProgram, this.page, this.S);
                         await scrape.LaunchProgram();
                     } else {
@@ -71,7 +97,7 @@ class BranchCondition {
                     }
                     break;
                 case ">=":
-                    if (Number(rawFirstOperand) >= Number(rawSecondOperand)) {
+                    if (rawFirstOperand >= rawSecondOperand) {
                         const scrape = new Scrape(this.browserController, this.json, this.ifProgram, this.page, this.S);
                         await scrape.LaunchProgram();
                     } else {
@@ -80,7 +106,7 @@ class BranchCondition {
                     }
                     break;
                 case "<=":
-                    if (Number(rawFirstOperand) <= Number(rawSecondOperand)) {
+                    if (rawFirstOperand <= rawSecondOperand) {
                         const scrape = new Scrape(this.browserController, this.json, this.ifProgram, this.page, this.S);
                         await scrape.LaunchProgram();
                     } else {
@@ -89,7 +115,8 @@ class BranchCondition {
                     }
                     break;
                 case "includes":
-                    if (rawFirstOperand && rawSecondOperand && rawFirstOperand.includes(rawSecondOperand)) {
+                    if (rawFirstOperand && rawSecondOperand && typeof rawFirstOperand !== "number"
+                        && typeof rawSecondOperand !== "number" && rawFirstOperand.includes(rawSecondOperand)) {
                         const scrape = new Scrape(this.browserController, this.json, this.ifProgram, this.page, this.S);
                         await scrape.LaunchProgram();
                     } else {

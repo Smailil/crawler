@@ -3,7 +3,7 @@
   "retiredSessionsCount": 0,
   "sessions": [
     {
-      "id": "session_THteKCNBTg",
+      "id": "session_NtyuBzmAXh",
       "cookieJar": {
         "version": "tough-cookie@4.1.2",
         "storeType": "MemoryCookieStore",
@@ -16,14 +16,14 @@
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2023-03-17T17:01:23.839Z",
-      "createdAt": "2023-03-17T16:11:23.839Z",
+      "expiresAt": "2023-03-22T17:54:13.975Z",
+      "createdAt": "2023-03-22T17:04:13.975Z",
       "usageCount": 0,
       "maxUsageCount": 50,
       "errorScore": 0
     },
     {
-      "id": "session_QqkJD6hC7z",
+      "id": "session_9B6R2CTe9l",
       "cookieJar": {
         "version": "tough-cookie@4.1.2",
         "storeType": "MemoryCookieStore",
@@ -31,58 +31,13 @@
         "enableLooseMode": false,
         "allowSpecialUseDomain": true,
         "prefixSecurity": "silent",
-        "cookies": [
-          {
-            "key": "atidvisitor",
-            "value": "%7B%22name%22%3A%22atidvisitor%22%2C%22val%22%3A%7B%22vrn%22%3A%22-595936-%22%7D%2C%22options%22%3A%7B%22path%22%3A%22%2F%22%2C%22session%22%3A15724800%2C%22end%22%3A15724800%7D%7D",
-            "expires": "2023-09-15T16:11:25.177Z",
-            "domain": "www.tagesschau.de",
-            "path": "/",
-            "secure": true,
-            "hostOnly": false,
-            "creation": "2023-03-17T16:11:25.184Z",
-            "lastAccessed": "2023-03-17T16:11:25.184Z"
-          },
-          {
-            "key": "atuserid",
-            "value": "%7B%22name%22%3A%22atuserid%22%2C%22val%22%3A%228fad96e6-c91a-40ba-84e2-a5578a5c581a%22%2C%22options%22%3A%7B%22end%22%3A%222024-04-17T16%3A11%3A25.174Z%22%2C%22path%22%3A%22%2F%22%7D%7D",
-            "expires": "2024-04-17T16:11:25.000Z",
-            "domain": "www.tagesschau.de",
-            "path": "/",
-            "secure": true,
-            "hostOnly": false,
-            "creation": "2023-03-17T16:11:25.187Z",
-            "lastAccessed": "2023-03-17T16:11:25.187Z"
-          },
-          {
-            "key": "_bb_t",
-            "value": "%5B%5D",
-            "expires": "2024-04-20T16:11:24.268Z",
-            "domain": "tagesschau.de",
-            "path": "/",
-            "secure": true,
-            "hostOnly": false,
-            "creation": "2023-03-17T16:11:25.189Z",
-            "lastAccessed": "2023-03-17T16:11:25.189Z"
-          },
-          {
-            "key": "_bb",
-            "value": "6414912c27405cb784fde8fc",
-            "expires": "2024-04-20T16:11:24.264Z",
-            "domain": "tagesschau.de",
-            "path": "/",
-            "secure": true,
-            "hostOnly": false,
-            "creation": "2023-03-17T16:11:25.193Z",
-            "lastAccessed": "2023-03-17T16:11:25.193Z"
-          }
-        ]
+        "cookies": []
       },
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2023-03-17T17:01:23.842Z",
-      "createdAt": "2023-03-17T16:11:23.842Z",
+      "expiresAt": "2023-03-22T17:54:13.977Z",
+      "createdAt": "2023-03-22T17:04:13.977Z",
       "usageCount": 2,
       "maxUsageCount": 50,
       "errorScore": 0

@@ -1,0 +1,46 @@
+{
+  "_id": "newStatic_scrapemap_moreOrEq500",
+  "beginProgram": ["1", "2", "3", "4"],
+  "selectors": [
+    {
+      "id": "1",
+      "type": "extractor",
+      "subType": "image",
+      "selector": "img",
+      "name": "S:img",
+      "multiple": false,
+      "textManipulation": {
+      }
+    },
+    {
+      "id": "2",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".card-title",
+      "name": "S:title",
+      "multiple": false,
+      "textManipulation": {
+      }
+    },
+    {
+      "id": "3",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".card-text",
+      "name": "S:text",
+      "multiple": false,
+      "textManipulation": {
+      }
+    },
+    {
+      "id": "4",
+      "type": "extractor",
+      "subType": "text",
+      "selector": ".text-primary",
+      "name": "S:price",
+      "multiple": false,
+      "textManipulation": {
+      }
+    }
+  ]
+}

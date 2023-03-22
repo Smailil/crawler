@@ -6,7 +6,7 @@ import {Dataset} from "crawlee";
 import {fileURLToPath} from "url";
 import {SArray, IncludeStruct, StoObject} from "../auxiliary/type.js";
 import {findToS} from "../auxiliary/auxiliaryFunction.js";
-import {PuppeteerController} from "@crawlee/browser-pool";
+import PageManager from "./pageManager.js";
 
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -14,10 +14,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 class Scrapemap {
     label: string;
-    browserController: PuppeteerController;
+    browserController: PageManager;
     page: Page;
     S: SArray;
-    constructor(browserController : PuppeteerController, include: IncludeStruct, page: Page, S: SArray) {
+    constructor(browserController : PageManager, include: IncludeStruct, page: Page, S: SArray) {
         this.browserController = browserController;
         this.label = include.label;
         this.page = page;
@@ -41,6 +41,7 @@ class Scrapemap {
         }, {});
 
         await Dataset.pushData(SObject);
+        await this.browserController.closePage(this.page);
     }
 }
 export {Scrapemap};

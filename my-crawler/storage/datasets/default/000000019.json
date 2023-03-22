@@ -1,27 +1,7 @@
 {
-	"topline": "Arbeiten mit Copilot",
-	"title": "Microsoft bringt KI-Anwendungen ins Büro",
-	"time": "Stand: 17.03.2023 10:04 Uhr",
-	"text": [
-		"Im Wettlauf um die Anwendung von Künstlicher Intelligenz im professionellen Alltag nimmt Microsoft die nächste Hürde. Der Konzern integriert Funktionen in seine wichtigsten Büroprogramme.",
-		"Microsoft geht bei der Anwendung von Künstlicher Intelligenz in die Offensive. Der Technologiekonzern werde umfassende KI-Funktionen in seine wichtigsten Büroprogramme integrieren, kündigte Konzernchef Satya Nadella an. Mit dem \"Microsoft 365 Copilot\" könnten Anwenderinnen und Anwender von Office-Programmen von den neuartigen KI-Funktionen profitieren, die seit Monaten in der IT-Welt für Aufsehen sorgten, so Nadella. Zu den Office-Bausteinen, die eine \"Copilot\"-Erweiterung erhalten, gehören Word für Textverarbeitung, Outlook für E-Mails und Kalender, Powerpoint für Präsentationen und Teams für Chats.",
-		"\"Der heutige Tag markiert den nächsten großen Schritt in der Entwicklung der Art und Weise, wie wir mit Computern interagieren\", sagte Nadella. Dies werde die Art und Weise, wie wir arbeiten, grundlegend verändern und eine neue Welle des Produktivitätswachstums freisetzen, verspricht er. Mit dem neuen \"Copiloten für die Arbeit\" gebe Microsoft den Menschen mehr Handlungsspielraum und mache Technologie über die universellste Schnittstelle - die natürliche Sprache - zugänglicher.",
-		"Nadella stellte zusammen mit Microsoft-Manager Jared Spataro beispielsweise einen neuartigen Business Chat vor. Dieser arbeitet nicht nur mit den Daten eines öffentlichen KI-Sprachmodells, sondern greift auch auf persönliche Daten wie Kalendereinträge, E-Mails, Chats sowie andere Dokumente der Anwenderinnen und Anwender zurück. \"Damit können Sie Dinge erledigen, die Sie bisher noch nie tun konnten\", so Spataro.",
-		"So könne man dem Programm mündlich Anweisungen geben, wie zum Beispiel: \"Sagen Sie meinem Team, wie wir die Produktstrategie aktualisiert haben.\" Die Software würde dann auf Basis von Meetings, E-Mails und Chats ein entsprechendes Status-Update erstellen.",
-		"Mit der breit angelegten KI-Offensive greift Microsoft die bislang unangetastete Führungsposition von Google in den Bereichen Internetsuche und Onlinewerbung an. Hier spielt die Integration des Text-Roboters ChatGPT in Bing und den Browser Microsoft Edge eine maßgebliche Rolle. Mit \"Microsoft 365 Copilot\" will der weltgrößte Software-Konzern zusätzlich seine Vormachtstellung im Bereich der Office-Software absichern und weiter ausbauen.",
-		"Die Integration der KI-Funktionen in seine Office-Software dürfte von noch größerer Tragweite sein als die KI-Initiative bei Bing. Bei der Suchmaschine Bing kommt der Konzern nur auf niedrige einstellige Marktanteile, während Microsoft den Office-Markt mit großem Abstand dominiert.",
-		"Ein Microsoft-Sprecher sagte der Nachrichtenagentur dpa, \"Microsoft 365 Copilot\" und der \"Business Chat\" könnten auch bedenkenlos in der Europäischen Union eingesetzt werden, da sie die Bestimmungen der Datenschutz-Grundverordnung (DSGVO) der EU erfüllten. Die KI-Lösungen seien auch nicht an den Einsatz der englischen Sprache gebunden, sondern würden auch beispielsweise auf Deutsch gut funktionieren.",
-		"Derzeit werde das Update von 20 ausgewählten gewerblichen Kunden getestet. Weitere sollen in den nächsten Monaten hinzukommen. Das Preismodell für den Einsatz der KI-Funktionen werde in absehbarer Zeit kommuniziert.",
-		"Am Dienstag hatte Google bereits angekündigt, eine Reihe von neuen generativen KI-Funktionen für seine verschiedenen Workspace-Apps auf den Markt zu bringen, darunter Google Docs, GMail, Sheets und Slides. Zu den Funktionen gehören unter anderem neue Möglichkeiten, Texte mit KI zu generieren oder zusammenzufassen sowie Ideen zu sammeln. Dank der KI können dann vollständige E-Mails in GMail auf der Grundlage von knappen Aufzählungspunkten erzeugt werden.",
-		"Der chinesische Internetkonzern Baidu hat mit seiner Antwort auf den populären Text-Automaten ChatGPT gestern allerdings die Erwartungen nicht erfüllt. \"Ich kann nicht sagen, dass wir vollständig bereit sind\", sagte Firmengründer Robin Li bei einer im Internet übertragenen Präsentation. Ernie Bot werde enthüllt, weil der Markt danach verlange. ChatGPT sei eine \"hohe Messlatte\".",
-		"China gilt neben den USA als führend in der Erforschung künstlicher Intelligenz. Konzerne wie Baidu haben in den vergangenen Jahren Milliarden in diesen Bereich investiert."
-	],
-	"tags": [
-		"KI",
-		"Microsoft",
-		"Künstliche Intelligenz",
-		"ChatGPT"
-	],
-	"author": "",
-	"URL": "https://www.tagesschau.de/wirtschaft/technologie/ki-microsoft-google-baidu-office-bueroprogramme-chat-nadella-wettlauf-chatgpt-101.html"
+	"img": "https://demo-site.at.ispras.ru/cart.png",
+	"title": "ThinkPad X230",
+	"text": "12.5\", Core i5 2.6GHz, 8GB, 180GB SSD, Win7 Pro 64bit",
+	"price": "₽ 1244.99",
+	"URL": "https://demo-site.at.ispras.ru/product/19"
 }

@@ -1,5 +1,4 @@
 import {Page} from "puppeteer";
-import {PuppeteerController} from "@crawlee/browser-pool";
 import {
     TextExtractor,
     ImageExtractor,
@@ -12,14 +11,15 @@ import {BranchCondition} from "./branchCondition.js";
 import {Scrapemap} from "./include.js";
 import {SArray} from "../auxiliary/type.js";
 import {Foreach} from "./loop.js";
+import PageManager from "./pageManager.js";
 
 class Scrape {
-    browserController: PuppeteerController;
+    browserController : PageManager;
     json: object
     program: string[];
     page: Page;
     S: SArray;
-    constructor(browserController : PuppeteerController, json: object, program: string[], page: Page, S?: SArray) {
+    constructor(browserController : PageManager, json: object, program: string[], page: Page, S?: SArray) {
         this.browserController = browserController;
         this.json = json;
         this.program = program;

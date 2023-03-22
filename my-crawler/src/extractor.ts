@@ -1,18 +1,20 @@
 import {Page} from "puppeteer";
-import {SArray, ExtractorStruct, FromHTMLExtractorStruct} from "../auxiliary/type.js";
-import {findToS} from "../auxiliary/auxiliaryFunction.js";
+import {SArray, ExtractorStruct, FromHTMLExtractorStruct, TextManipulation} from "../auxiliary/type.js";
+import {findToS, textManipulation} from "../auxiliary/auxiliaryFunction.js";
 import { JSDOM } from 'jsdom';
 
 class Extractor {
     selector: string;
     name: string;
     multiple: boolean;
+    textManipulation: TextManipulation;
     page: Page
     S: SArray;
     constructor(extractor: ExtractorStruct, page:Page, S: SArray) {
         this.selector = extractor.selector;
         this.name = extractor.name;
         this.multiple = extractor.multiple;
+        this.textManipulation = extractor.textManipulation;
         this.page = page;
         this.S = S;
     }
@@ -25,11 +27,13 @@ class FromHTMLExtractor {
     multiple: boolean;
     page: Page;
     S: SArray;
+    textManipulation: TextManipulation;
     constructor(fromHTMLExtractor: FromHTMLExtractorStruct, page: Page, S: SArray) {
         this.html = fromHTMLExtractor.html;
         this.selector = fromHTMLExtractor.selector;
         this.name = fromHTMLExtractor.name;
         this.multiple = fromHTMLExtractor.multiple;
+        this.textManipulation = fromHTMLExtractor.textManipulation;
         this.page = page;
         this.S = S;
     }
@@ -44,17 +48,20 @@ class TextExtractor extends Extractor {
         if (!(rawSelector instanceof Array) && rawSelector) {
             try {
                 if (this.multiple) {
+                    const elements = await this.page.$$eval(rawSelector, (elements) => {
+                        return elements.map(element => element.textContent ?? '');
+                    });
                     this.S.push([
                         this.name.substring(2),
-                        await this.page.$$eval(rawSelector, (elements) => {
-                            return elements.map(element => (element.textContent ?? '').trim());
-                        })
+                        textManipulation(elements, this.textManipulation)
                     ]);
                 } else {
+                    const element = await this.page.$eval(rawSelector, element =>
+                        element.textContent ?? '');
                     this.S.push([
                         this.name.substring(2),
-                        await this.page.$eval(rawSelector, element => (element.textContent ?? '').trim())
-                    ]);
+                        textManipulation(element, this.textManipulation)
+                    ])
                 }
             } catch (error) {
                 this.S.push([this.name.substring(2), '']);
@@ -73,16 +80,18 @@ class ImageExtractor extends Extractor {
         if (!(rawSelector instanceof Array) && rawSelector) {
             try {
                 if (this.multiple) {
+                    const elements = await this.page.$$eval(rawSelector, (elements) => {
+                        return elements.map(element => element.src ?? '');
+                    });
                     this.S.push([
                         this.name.substring(2),
-                        await this.page.$$eval(rawSelector, (elements) => {
-                            return elements.map(element => element.src);
-                        })
+                        textManipulation(elements, this.textManipulation)
                     ]);
                 } else {
+                    const element = await this.page.$eval(rawSelector, element => element.src ?? '');
                     this.S.push([
                         this.name.substring(2),
-                        await this.page.$eval(rawSelector, element => element.src)
+                        textManipulation(element, this.textManipulation)
                     ]);
                 }
             } catch (error) {
@@ -102,16 +111,18 @@ class UrlExtractor extends Extractor {
         if (!(rawSelector instanceof Array) && rawSelector) {
             try {
                 if (this.multiple) {
+                    const elements = await this.page.$$eval(rawSelector, (elements) => {
+                        return elements.map(element => element.href ?? '');
+                    })
                     this.S.push([
                         this.name.substring(2),
-                        await this.page.$$eval(rawSelector, (elements) => {
-                            return elements.map(element => element.href);
-                        })
-                    ]);
+                        textManipulation(elements, this.textManipulation)
+                    ])
                 } else {
+                    const element = await this.page.$eval(rawSelector, element => element.href ?? '');
                     this.S.push([
                         this.name.substring(2),
-                        await this.page.$eval(rawSelector, element => element.href)
+                        textManipulation(element, this.textManipulation)
                     ]);
                 }
             } catch (error) {
@@ -131,16 +142,18 @@ class HTMLExtractor extends Extractor {
         if (!(rawSelector instanceof Array) && rawSelector) {
             try {
                 if (this.multiple) {
+                    const elements = await this.page.$$eval(rawSelector, (elements) => {
+                        return elements.map(element => element.innerHTML ?? '');
+                    })
                     this.S.push([
                         this.name.substring(2),
-                        await this.page.$$eval(rawSelector, (elements) => {
-                            return elements.map(element => element.innerHTML);
-                        })
+                        textManipulation(elements, this.textManipulation)
                     ]);
                 } else {
+                    const element = await this.page.$eval(rawSelector, element => element.innerHTML ?? '');
                     this.S.push([
                         this.name.substring(2),
-                        await this.page.$eval(rawSelector, element => element.innerHTML)
+                        textManipulation(element, this.textManipulation)
                     ]);
                 }
             } catch (error) {
@@ -167,17 +180,18 @@ class TextFromHTMLExtractor extends FromHTMLExtractor {
 
                 if (this.multiple) {
                     const elements = document.querySelectorAll(rawSelector as keyof HTMLElementTagNameMap);
-                    const textContents = Array.from(elements).map(element => (element as Element).textContent?.trim() ?? '');
+                    const textContents = Array.from(elements).map(element =>
+                        (element as Element).textContent ?? '');
                     this.S.push([
                         this.name.substring(2),
-                        textContents,
+                        textManipulation(textContents, this.textManipulation)
                     ]);
                 } else {
                     const element = document.querySelector(rawSelector as keyof HTMLElementTagNameMap);
-                    const textContent = (element as Element)?.textContent?.trim() ?? '';
+                    const textContent = (element as Element).textContent ?? '';
                     this.S.push([
                         this.name.substring(2),
-                        textContent,
+                        textManipulation(textContent, this.textManipulation)
                     ]);
                 }
             } catch (error) {
@@ -204,17 +218,18 @@ class UrlFromHTMLExtractor extends FromHTMLExtractor {
 
                 if (this.multiple) {
                     const elements = document.querySelectorAll(rawSelector as keyof HTMLElementTagNameMap);
-                    const hrefs = Array.from(elements).map(element => (element as HTMLAnchorElement).href ?? '');
+                    const hrefs = Array.from(elements).map(element =>
+                        (element as HTMLAnchorElement).href ?? '');
                     this.S.push([
                         this.name.substring(2),
-                        hrefs,
+                        textManipulation(hrefs, this.textManipulation)
                     ]);
                 } else {
                     const element = document.querySelector(rawSelector as keyof HTMLElementTagNameMap);
                     const href = (element as HTMLAnchorElement)?.href ?? '';
                     this.S.push([
                         this.name.substring(2),
-                        href,
+                        textManipulation(href, this.textManipulation)
                     ]);
                 }
             } catch (error) {
@@ -223,6 +238,7 @@ class UrlFromHTMLExtractor extends FromHTMLExtractor {
         }
     }
 }
+
 
 export {TextExtractor, ImageExtractor, UrlExtractor, HTMLExtractor, FromHTMLExtractor,
     TextFromHTMLExtractor, UrlFromHTMLExtractor};
