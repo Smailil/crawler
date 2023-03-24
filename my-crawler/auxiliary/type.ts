@@ -115,11 +115,17 @@ type WhileOnExistsStruct = {
     program: string[];
 }
 
+type TimeoutStruct = {
+    id: string;
+    type: string;
+    time: string;
+}
+
 interface StoObject {
     [key: string]: string | null | (string | null)[];
 }
 
 export {ExtractorStruct, AttributeExtractorStruct, SArray, ArrayInS, BranchConditionStruct, GotoStruct,
     TextManipulation, IncludeStruct, ForeachStruct, FromHTMLExtractorStruct, StoObject, ScrollStruct, VariableStruct,
-    IncrementStruct, DecrementStruct, WhileStruct, WhileOnExistsStruct};
+    IncrementStruct, DecrementStruct, WhileStruct, WhileOnExistsStruct, TimeoutStruct};
 

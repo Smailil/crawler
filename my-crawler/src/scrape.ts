@@ -14,6 +14,7 @@ import {Foreach, WhileLoop, WhileOnExists} from "./loop.js";
 import PageManager from "./pageManager.js";
 import {Scroll} from "./scroll.js";
 import {Decrement, Increment, Variable} from "./variable.js";
+import {Timeout} from "./timeout.js";
 
 class Scrape {
     browserController : PageManager;
@@ -110,6 +111,10 @@ class Scrape {
                     const whileOnExists = new WhileOnExists(this.browserController,
                         this.json, selector, this.page, this.S);
                     await whileOnExists.WhileOnExistsDone();
+                    break;
+                case "timeout":
+                    const timeout = new Timeout(selector);
+                    await timeout.TimeoutDone();
                     break;
                 default:
                     console.log(`${selector.type} is not supported`);
