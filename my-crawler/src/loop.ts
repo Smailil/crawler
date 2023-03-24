@@ -1,5 +1,5 @@
 import {Page} from "puppeteer";
-import {ForeachStruct, SArray, WhileStruct, WhileOnExistsStruct} from "../auxiliary/type.js";
+import {ForeachStruct, SArray, WhileStruct, WhileOnExistsStruct, JSONStruct} from "../auxiliary/type.js";
 import {findToS} from "../auxiliary/auxiliaryFunction.js";
 import {Scrape} from "./scrape.js";
 import PageManager from "./pageManager.js";
@@ -9,11 +9,11 @@ class Foreach {
     name: string;
     program: string[];
     browserController: PageManager;
-    json: object;
+    json: JSONStruct;
     page: Page;
     S: SArray;
 
-    constructor(browserController: PageManager, json: object, foreach: ForeachStruct,
+    constructor(browserController: PageManager, json: JSONStruct, foreach: ForeachStruct,
                 page: Page, S: SArray) {
         this.browserController = browserController;
         this.json = json;
@@ -51,11 +51,11 @@ class WhileLoop {
     program: string[];
     typeOfOperand: string;
     browserController: PageManager;
-    json: object;
+    json: JSONStruct;
     page: Page;
     S: SArray;
 
-    constructor(browserController: PageManager, json: object, whileLoop: WhileStruct, page: Page, S: SArray) {
+    constructor(browserController: PageManager, json: JSONStruct, whileLoop: WhileStruct, page: Page, S: SArray) {
         this.browserController = browserController;
         this.json = json;
         this.page = page;
@@ -172,10 +172,10 @@ class WhileOnExists {
     selector: string;
     program: string[];
     browserController: PageManager;
-    json: object;
+    json: JSONStruct;
     page: Page;
     S: SArray;
-    constructor(browserController: PageManager, json: object,
+    constructor(browserController: PageManager, json: JSONStruct,
                 whileOnExists: WhileOnExistsStruct, page: Page, S: SArray) {
         this.browserController = browserController;
         this.json = json;

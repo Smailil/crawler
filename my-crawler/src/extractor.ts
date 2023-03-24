@@ -87,14 +87,14 @@ class ImageExtractor extends Extractor {
             try {
                 if (this.multiple) {
                     const elements = await this.page.$$eval(rawSelector, (elements) => {
-                        return elements.map(element => element.src ?? '');
+                        return elements.map(element => (element as HTMLImageElement).src ?? '');
                     });
                     this.S.push([
                         this.name.substring(2),
                         textManipulation(elements, this.textManipulation)
                     ]);
                 } else {
-                    const element = await this.page.$eval(rawSelector, element => element.src ?? '');
+                    const element = await this.page.$eval(rawSelector, element => (element as HTMLImageElement).src ?? '');
                     this.S.push([
                         this.name.substring(2),
                         textManipulation(element, this.textManipulation)
@@ -118,14 +118,14 @@ class UrlExtractor extends Extractor {
             try {
                 if (this.multiple) {
                     const elements = await this.page.$$eval(rawSelector, (elements) => {
-                        return elements.map(element => element.href ?? '');
+                        return elements.map(element => (element as HTMLAnchorElement).href ?? '');
                     })
                     this.S.push([
                         this.name.substring(2),
                         textManipulation(elements, this.textManipulation)
                     ])
                 } else {
-                    const element = await this.page.$eval(rawSelector, element => element.href ?? '');
+                    const element = await this.page.$eval(rawSelector, element => (element as HTMLAnchorElement).href ?? '');
                     this.S.push([
                         this.name.substring(2),
                         textManipulation(element, this.textManipulation)

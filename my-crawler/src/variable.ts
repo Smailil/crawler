@@ -1,20 +1,22 @@
 import {Page} from "puppeteer";
-import {DecrementStruct, IncrementStruct, SArray, VariableStruct} from "../auxiliary/type.js";
-import {findToS} from "../auxiliary/auxiliaryFunction";
+import {DecrementStruct, IncrementStruct, SArray, TextManipulation, VariableStruct} from "../auxiliary/type.js";
+import {findToS, textManipulation} from "../auxiliary/auxiliaryFunction";
 
 class Variable {
     name: string;
     value: string;
+    textManipulation: TextManipulation;
     page: Page;
     S: SArray;
     constructor(variable: VariableStruct, page: Page, S: SArray) {
         this.name = variable.name;
         this.value = variable.value;
+        this.textManipulation = variable.textManipulation;
         this.page = page;
         this.S = S;
     }
     async VariableCreate() {
-        this.S.push([this.name.substring(2), this.value]);
+        this.S.push([this.name.substring(2), textManipulation(this.value, this.textManipulation)]);
     }
 }
 

@@ -53,6 +53,14 @@ type BranchConditionStruct = {
     typeOfOperand: string
 }
 
+type BranchConditionOnExistsStruct = {
+    id: number,
+    type: string,
+    selector: string,
+    ifProgram: string[],
+    elseProgram: string[]
+}
+
 type GotoStruct = {
     id: number,
     type: string,
@@ -84,6 +92,7 @@ type VariableStruct = {
     type: string;
     name: string;
     value: string;
+    textManipulation: TextManipulation
 }
 
 type IncrementStruct = {
@@ -121,11 +130,35 @@ type TimeoutStruct = {
     time: string;
 }
 
+type ClickStruct = {
+    id: string;
+    type: string;
+    selector: string;
+}
+
+type InputStruct = {
+    id: string;
+    type: string;
+    selector: string;
+    value: string;
+}
 interface StoObject {
     [key: string]: string | null | (string | null)[];
 }
 
-export {ExtractorStruct, AttributeExtractorStruct, SArray, ArrayInS, BranchConditionStruct, GotoStruct,
-    TextManipulation, IncludeStruct, ForeachStruct, FromHTMLExtractorStruct, StoObject, ScrollStruct, VariableStruct,
-    IncrementStruct, DecrementStruct, WhileStruct, WhileOnExistsStruct, TimeoutStruct};
+type SelectorStruct = ExtractorStruct & AttributeExtractorStruct & BranchConditionStruct & BranchConditionOnExistsStruct &
+    GotoStruct & IncludeStruct & ForeachStruct & FromHTMLExtractorStruct & ScrollStruct & VariableStruct &
+    IncrementStruct & DecrementStruct & WhileStruct & WhileOnExistsStruct & TimeoutStruct & ClickStruct & InputStruct;
+
+type JSONStruct = {
+    _id: string;
+    startUrls?: string[];
+    beginProgram: string[];
+    selectors: SelectorStruct[];
+}
+
+export {ExtractorStruct, AttributeExtractorStruct, ArrayInS, BranchConditionStruct, BranchConditionOnExistsStruct,
+    GotoStruct, TextManipulation, IncludeStruct, ForeachStruct, FromHTMLExtractorStruct, StoObject, ScrollStruct,
+    VariableStruct, IncrementStruct, DecrementStruct, WhileStruct, WhileOnExistsStruct, TimeoutStruct, ClickStruct,
+    SArray, InputStruct, JSONStruct};
 

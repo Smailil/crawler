@@ -1,6 +1,6 @@
 import {Page} from "puppeteer";
 import {Scrape} from "./scrape.js";
-import {SArray, BranchConditionStruct} from "../auxiliary/type.js";
+import {SArray, BranchConditionStruct, JSONStruct, BranchConditionOnExistsStruct} from "../auxiliary/type.js";
 import {findToS} from "../auxiliary/auxiliaryFunction.js";
 import PageManager from "./pageManager.js";
 
@@ -12,10 +12,10 @@ class BranchCondition {
     elseProgram: string[];
     typeOfOperand: string;
     browserController: PageManager;
-    json: object;
+    json: JSONStruct;
     page: Page;
     S: SArray;
-    constructor(browserController : PageManager, json:object,
+    constructor(browserController : PageManager, json:JSONStruct,
                 branchCondition:BranchConditionStruct, page:Page, S:SArray) {
         this.browserController = browserController;
         this.json = json;
@@ -131,4 +131,40 @@ class BranchCondition {
     }
 }
 
-export {BranchCondition};
+class BranchConditionOnExists {
+    selector: string;
+    ifProgram: string[];
+    elseProgram: string[];
+    browserController: PageManager;
+    json: JSONStruct;
+    page: Page;
+    S: SArray;
+
+    constructor(browserController: PageManager, json:JSONStruct,
+                branchConditionOnExists: BranchConditionOnExistsStruct, page:Page, S:SArray) {
+        this.browserController = browserController;
+        this.json = json;
+        this.page = page;
+        this.S = S;
+        this.selector = branchConditionOnExists.selector;
+        this.ifProgram = branchConditionOnExists.ifProgram;
+        this.elseProgram = branchConditionOnExists.elseProgram;
+    }
+
+    async BranchConditionOnExistsDone() {
+        const rawSelector = this.selector.startsWith("S:") ?
+            findToS(this.selector.substring(2), this.S): this.selector;
+        if(rawSelector && !(rawSelector instanceof Array)) {
+            const element = await this.page.$(this.selector);
+            if (element) {
+                const scrape = new Scrape(this.browserController, this.json, this.ifProgram, this.page, this.S);
+                await scrape.LaunchProgram();
+            } else {
+                const scrape = new Scrape(this.browserController, this.json, this.elseProgram, this.page, this.S);
+                await scrape.LaunchProgram();
+            }
+        }
+    }
+}
+
+export {BranchCondition, BranchConditionOnExists};
