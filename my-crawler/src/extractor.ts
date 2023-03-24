@@ -1,5 +1,11 @@
 import {Page} from "puppeteer";
-import {SArray, ExtractorStruct, FromHTMLExtractorStruct, TextManipulation} from "../auxiliary/type.js";
+import {
+    SArray,
+    ExtractorStruct,
+    FromHTMLExtractorStruct,
+    TextManipulation,
+    AttributeExtractorStruct
+} from "../auxiliary/type.js";
 import {findToS, textManipulation} from "../auxiliary/auxiliaryFunction.js";
 import { JSDOM } from 'jsdom';
 
@@ -132,6 +138,50 @@ class UrlExtractor extends Extractor {
     }
 }
 
+class AttributeExtractor {
+    selector: string;
+    name: string;
+    attribute: string;
+    multiple: boolean;
+    page: Page;
+    S: SArray;
+    textManipulation: TextManipulation;
+    constructor(extractor: AttributeExtractorStruct, page: Page, S: SArray) {
+        this.selector = extractor.selector;
+        this.name = extractor.name;
+        this.attribute = extractor.attribute;
+        this.multiple = extractor.multiple;
+        this.textManipulation = extractor.textManipulation;
+        this.page = page;
+        this.S = S;
+    }
+    async GetAttributes() {
+        const rawSelector = this.selector.startsWith("S:") ?
+            findToS(this.selector.substring(2), this.S): this.selector;
+        if (!(rawSelector instanceof Array) && rawSelector) {
+            try {
+                if (this.multiple) {
+                    const elements = await this.page.$$eval(rawSelector, (elements) => {
+                        return elements.map(element => element.getAttribute(this.attribute) ?? '');
+                    });
+                    this.S.push([
+                        this.name.substring(2),
+                        textManipulation(elements, this.textManipulation)
+                    ]);
+                } else {
+                    const element = await this.page.$eval(rawSelector, element => element.getAttribute(this.attribute) ?? '');
+                    this.S.push([
+                        this.name.substring(2),
+                        textManipulation(element, this.textManipulation)
+                    ]);
+                }
+            } catch (error) {
+                this.S.push([this.name.substring(2), '']);
+            }
+        }
+    }
+}
+
 class HTMLExtractor extends Extractor {
     constructor(selectorObject: ExtractorStruct, page: Page, S: SArray) {
         super(selectorObject, page, S);
@@ -240,5 +290,5 @@ class UrlFromHTMLExtractor extends FromHTMLExtractor {
 }
 
 
-export {TextExtractor, ImageExtractor, UrlExtractor, HTMLExtractor, FromHTMLExtractor,
+export {TextExtractor, ImageExtractor, UrlExtractor, AttributeExtractor, HTMLExtractor, FromHTMLExtractor,
     TextFromHTMLExtractor, UrlFromHTMLExtractor};

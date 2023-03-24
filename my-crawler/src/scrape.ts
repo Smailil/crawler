@@ -4,14 +4,16 @@ import {
     ImageExtractor,
     UrlExtractor,
     HTMLExtractor,
-    TextFromHTMLExtractor, UrlFromHTMLExtractor
+    TextFromHTMLExtractor, UrlFromHTMLExtractor, AttributeExtractor
 } from "./extractor.js";
 import {Goto} from "./goto.js";
 import {BranchCondition} from "./branchCondition.js";
 import {Scrapemap} from "./include.js";
 import {SArray} from "../auxiliary/type.js";
-import {Foreach} from "./loop.js";
+import {Foreach, WhileLoop, WhileOnExists} from "./loop.js";
 import PageManager from "./pageManager.js";
+import {Scroll} from "./scroll.js";
+import {Decrement, Increment, Variable} from "./variable.js";
 
 class Scrape {
     browserController : PageManager;
@@ -43,6 +45,10 @@ class Scrape {
                         case 'url':
                             const url = new UrlExtractor(selector, this.page, this.S);
                             await url.GetUrls();
+                            break;
+                        case 'attribute':
+                            const attribute = new AttributeExtractor(selector, this.page, this.S);
+                            await attribute.GetAttributes();
                             break;
                         case 'html':
                             const html = new HTMLExtractor(selector, this.page, this.S);
@@ -79,6 +85,31 @@ class Scrape {
                 case "foreach":
                     const foreach = new Foreach(this.browserController, this.json, selector, this.page, this.S);
                     await foreach.ForeachDone();
+                    break;
+                case "scroll":
+                    const scroll = new Scroll(selector, this.page);
+                    await scroll.ScrollDone();
+                    break;
+                case "variable":
+                    const variable = new Variable(selector, this.page, this.S);
+                    await variable.VariableCreate();
+                    break;
+                case "increment":
+                    const increment = new Increment(selector, this.page, this.S);
+                    await increment.IncrementDone();
+                    break;
+                case "decrement":
+                    const decrement = new Decrement(selector, this.page, this.S);
+                    await decrement.DecrementDone();
+                    break;
+                case "while":
+                    const whileLoop = new WhileLoop(this.browserController, this.json, selector, this.page, this.S);
+                    await whileLoop.WhileLoopDone();
+                    break;
+                case "whileOnExists":
+                    const whileOnExists = new WhileOnExists(this.browserController,
+                        this.json, selector, this.page, this.S);
+                    await whileOnExists.WhileOnExistsDone();
                     break;
                 default:
                     console.log(`${selector.type} is not supported`);
