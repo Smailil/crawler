@@ -3,6 +3,7 @@ import { router } from './routes.js';
 import path from "path";
 import fs from "fs";
 import {fileURLToPath} from "url";
+import {JSONStruct} from "../auxiliary/type.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -14,8 +15,9 @@ const crawler = new PuppeteerCrawler({
 
 const pathToFile = path.join(__dirname, '../json/newStatic_root.json');
 const jsonString = fs.readFileSync(pathToFile).toString();
-const jsonObj = JSON.parse(jsonString);
+const jsonObj : JSONStruct = JSON.parse(jsonString);
 
-await crawler.addRequests(jsonObj.startUrls);
+if(jsonObj.startUrls)
+    await crawler.addRequests(jsonObj.startUrls);
 
 await crawler.run();
