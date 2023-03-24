@@ -1,8 +1,8 @@
 import {Page} from "puppeteer";
 import {ForeachStruct, SArray, WhileStruct, WhileOnExistsStruct, JSONStruct} from "../auxiliary/type.js";
 import {findToS} from "../auxiliary/auxiliaryFunction.js";
-import {Scrape} from "./scrape.js";
-import PageManager from "./pageManager.js";
+import {Scrape} from "../src/scrape.js";
+import PageManager from "../src/pageManager.js";
 
 class Foreach {
     array: string;

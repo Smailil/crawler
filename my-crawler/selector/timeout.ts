@@ -1,4 +1,4 @@
-import {TimeoutStruct} from "../auxiliary/type";
+import {TimeoutStruct} from "../auxiliary/type.js";
 
 class Timeout {
     time: string;

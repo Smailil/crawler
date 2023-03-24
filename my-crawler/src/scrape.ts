@@ -5,18 +5,18 @@ import {
     UrlExtractor,
     HTMLExtractor,
     TextFromHTMLExtractor, UrlFromHTMLExtractor, AttributeExtractor
-} from "./extractor.js";
-import {Goto} from "./goto.js";
-import {BranchCondition, BranchConditionOnExists} from "./branchCondition.js";
-import {Scrapemap} from "./include.js";
+} from "../selector/extractor.js";
+import {Goto} from "../selector/goto.js";
+import {BranchCondition, BranchConditionOnExists} from "../selector/branchCondition.js";
+import {Scrapemap} from "../selector/include.js";
 import {JSONStruct, SArray} from "../auxiliary/type.js";
-import {Foreach, WhileLoop, WhileOnExists} from "./loop.js";
+import {Foreach, WhileLoop, WhileOnExists} from "../selector/loop.js";
 import PageManager from "./pageManager.js";
-import {Scroll} from "./scroll.js";
-import {Decrement, Increment, Variable} from "./variable.js";
-import {Timeout} from "./timeout.js";
-import {Click} from "./click";
-import {Input} from "./input";
+import {Scroll} from "../selector/scroll.js";
+import {Decrement, Increment, Variable} from "../selector/variable.js";
+import {Timeout} from "../selector/timeout.js";
+import {Click} from "../selector/click.js";
+import {Input} from "../selector/input.js";
 
 class Scrape {
     browserController : PageManager;

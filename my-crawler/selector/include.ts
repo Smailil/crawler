@@ -1,12 +1,12 @@
 import {Page} from "puppeteer";
 import path from "path";
 import fs from "fs";
-import {Scrape} from "./scrape.js";
+import {Scrape} from "../src/scrape.js";
 import {Dataset} from "crawlee";
 import {fileURLToPath} from "url";
 import {SArray, IncludeStruct, StoObject} from "../auxiliary/type.js";
 import {findToS} from "../auxiliary/auxiliaryFunction.js";
-import PageManager from "./pageManager.js";
+import PageManager from "../src/pageManager.js";
 
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

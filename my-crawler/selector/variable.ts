@@ -1,6 +1,6 @@
 import {Page} from "puppeteer";
 import {DecrementStruct, IncrementStruct, SArray, TextManipulation, VariableStruct} from "../auxiliary/type.js";
-import {findToS, textManipulation} from "../auxiliary/auxiliaryFunction";
+import {findToS, textManipulation} from "../auxiliary/auxiliaryFunction.js";
 
 class Variable {
     name: string;

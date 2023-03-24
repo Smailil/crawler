@@ -1,8 +1,8 @@
 import {Page} from "puppeteer";
-import {Scrape} from "./scrape.js";
+import {Scrape} from "../src/scrape.js";
 import {SArray, BranchConditionStruct, JSONStruct, BranchConditionOnExistsStruct} from "../auxiliary/type.js";
 import {findToS} from "../auxiliary/auxiliaryFunction.js";
-import PageManager from "./pageManager.js";
+import PageManager from "../src/pageManager.js";
 
 class BranchCondition {
     firstOperand: string;
