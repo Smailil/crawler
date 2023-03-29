@@ -1,15 +1,14 @@
 {
     "_id": "liberte_root",
     "startUrls": ["https://www.liberte-algerie.com/actualite"],
-    "beginProgram": ["1"],
+    "beginProgram": ["1", "4", "5"],
     "selectors": [
         {
             "id": "1",
             "type": "loopOnExists",
             "numberOfLoops": "",
             "selector": "ul.list-main li.link-btn a",
-            "loopProgram": ["2", "3"],
-            "afterLoopProgram": ["4", "5"]
+            "program": ["2", "3"]
         },
         {
             "id": "2",

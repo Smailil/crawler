@@ -122,8 +122,7 @@ type LoopOnExistsStruct = {
     type: string;
     selector: string;
     numberOfLoops: string;
-    loopProgram: string[];
-    afterLoopProgram: string[];
+    program: string[];
 }
 
 type TimeoutStruct = {

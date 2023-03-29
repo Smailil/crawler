@@ -171,8 +171,7 @@ class WhileLoop {
 class LoopOnExists {
     selector: string;
     numberOfLoops: string;
-    loopProgram: string[];
-    afterLoopProgram: string[];
+    program: string[];
     browserController: PageManager;
     json: JSONStruct;
     page: Page;
@@ -185,8 +184,7 @@ class LoopOnExists {
         this.S = S;
         this.selector = loopOnExists.selector;
         this.numberOfLoops = loopOnExists.numberOfLoops;
-        this.loopProgram = loopOnExists.loopProgram;
-        this.afterLoopProgram = loopOnExists.afterLoopProgram;
+        this.program = loopOnExists.program;
     }
 
     async LoopOnExistsDone() {
@@ -196,20 +194,18 @@ class LoopOnExists {
         if (!(rawNumberOfLoops instanceof Array) && rawNumberOfLoops !== null) {
             if (rawNumberOfLoops === "") {
                 while (element) {
-                    const scrape = new Scrape(this.browserController, this.json, this.loopProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.program, this.page, this.S);
                     await scrape.LaunchProgram();
                     element = await this.page.$(this.selector);
                 }
             } else {
                 const intNumberOfLoops = parseInt(rawNumberOfLoops);
                 for (let i = 0; element && i < intNumberOfLoops; i++) {
-                    const scrape = new Scrape(this.browserController, this.json, this.loopProgram, this.page, this.S);
+                    const scrape = new Scrape(this.browserController, this.json, this.program, this.page, this.S);
                     await scrape.LaunchProgram();
                     element = await this.page.$(this.selector);
                 }
             }
-            const scrape = new Scrape(this.browserController, this.json, this.afterLoopProgram, this.page, this.S);
-            await scrape.LaunchProgram();
         }
     }
 }
