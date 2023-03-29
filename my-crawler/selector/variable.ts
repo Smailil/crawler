@@ -16,7 +16,10 @@ class Variable {
         this.S = S;
     }
     async VariableCreate() {
-        this.S.push([this.name.substring(2), textManipulation(this.value, this.textManipulation)]);
+        const rawValue = this.value.startsWith("S:") ? findToS(this.value.substring(2), this.S): this.value;
+        if(rawValue && !(rawValue instanceof Array)) {
+            this.S.push([this.name.substring(2), textManipulation(rawValue, this.textManipulation)]);
+        }
     }
 }
 

@@ -1,0 +1,33 @@
+{
+  "_id": "mfagov_scrapemap",
+  "beginProgram": ["1", "2", "3"],
+  "selectors": [
+    {
+      "id": "1",
+      "type": "extractor",
+      "subType": "text",
+      "selector": "h1 > b",
+      "name": "S:title",
+      "multiple": false,
+      "textManipulation": {}
+    },
+    {
+      "id": "2",
+      "type": "extractor",
+      "subType": "image",
+      "selector": "div.col-md img",
+      "name": "S:img",
+      "multiple": false,
+      "textManipulation": {}
+    },
+    {
+      "id": "3",
+      "type": "extractor",
+      "subType": "text",
+      "selector": "div.my-4 p",
+      "name": "S:text",
+      "multiple": true,
+      "textManipulation": {}
+    }
+  ]
+}

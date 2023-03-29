@@ -12,7 +12,7 @@ export const router = createPuppeteerRouter();
 
 
 router.addDefaultHandler(async ({ browserController, page }) => {
-    const pathToFile = path.join(__dirname, '../json/liberte_root.json');
+    const pathToFile = path.join(__dirname, '../json/mfagov_root.json');
     const jsonString = fs.readFileSync(pathToFile).toString();
     const jsonObj : JSONStruct = JSON.parse(jsonString);
 

@@ -1,0 +1,109 @@
+{
+  "_id": "mfagov_root",
+  "startUrls": ["https://www.mfa.gov.dz/press-and-information/news-and-press-releases"],
+  "beginProgram": ["1", "2"],
+  "selectors": [
+    {
+      "id": "1",
+      "type": "variable",
+      "name": "S:page",
+      "value": "1",
+      "textManipulation": {}
+    },
+    {
+      "id": "2",
+      "type": "while",
+      "firstOperand": "S:page",
+      "logicalOperation": "<",
+      "secondOperand": "28",
+      "program": ["3", "4", "7", "12", "13", "14"],
+      "typeOfOperand": "integer"
+    },
+    {
+      "id": "3",
+      "type": "extractor",
+      "subType": "url",
+      "selector": "h6 > a",
+      "name": "S:urls",
+      "multiple": true,
+      "textManipulation": {}
+    },
+    {
+      "id": "4",
+      "type": "foreach",
+      "array": "S:urls",
+      "name": "S:url",
+      "program": ["5", "6"]
+    },
+    {
+      "id": "5",
+      "type": "goto",
+      "link": "S:url"
+    },
+    {
+      "id": "6",
+      "type": "include",
+      "label": "mfagov_scrapemap"
+    },
+    {
+      "id": "7",
+      "type": "branchCondition",
+      "firstOperand": "S:page",
+      "logicalOperation": "==",
+      "secondOperand": "1",
+      "ifProgram": ["8"],
+      "elseProgram": ["9"],
+      "typeOfOperand": "integer"
+    },
+    {
+      "id": "8",
+      "type": "variable",
+      "name": "S:buttonSelector",
+      "value": "li.page-item:nth-child(2) > a",
+      "textManipulation": {}
+    },
+    {
+      "id": "9",
+      "type": "branchCondition",
+      "firstOperand": "S:page",
+      "logicalOperation": "==",
+      "secondOperand": "2",
+      "ifProgram": ["10"],
+      "elseProgram": ["11"],
+      "typeOfOperand": "integer"
+    },
+    {
+      "id": "10",
+      "type": "variable",
+      "name": "S:buttonSelector",
+      "value": "li.page-item:nth-child(3) > a",
+      "textManipulation": {}
+    },
+    {
+      "id": "11",
+      "type": "variable",
+      "name": "S:buttonSelector",
+      "value": "li.page-item:nth-child(4) > a",
+      "textManipulation": {}
+    },
+    {
+      "id": "12",
+      "type": "extractor",
+      "subType": "url",
+      "selector": "S:buttonSelector",
+      "name": "S:buttonUrl",
+      "multiple": false,
+      "textManipulation": {}
+    },
+    {
+      "id": "13",
+      "type": "goto",
+      "link": "S:buttonUrl"
+    },
+    {
+      "id": "14",
+      "type": "increment",
+      "name": "S:page"
+    }
+  ]
+}

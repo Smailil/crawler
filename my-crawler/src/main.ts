@@ -9,11 +9,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const crawler = new PuppeteerCrawler({
     requestHandlerTimeoutSecs: 30000,
-    headless: true,
+    headless: false,
     requestHandler: router,
 });
 
-const pathToFile = path.join(__dirname, '../json/liberte_root.json');
+const pathToFile = path.join(__dirname, '../json/mfagov_root.json');
 const jsonString = fs.readFileSync(pathToFile).toString();
 const jsonObj : JSONStruct = JSON.parse(jsonString);
 
