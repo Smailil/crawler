@@ -1,0 +1,51 @@
+{
+    "_id": "liberte_root",
+    "startUrls": ["https://www.liberte-algerie.com/actualite"],
+    "beginProgram": ["1"],
+    "selectors": [
+        {
+            "id": "1",
+            "type": "loopOnExists",
+            "numberOfLoops": "",
+            "selector": "ul.list-main li.link-btn a",
+            "loopProgram": ["2", "3"],
+            "afterLoopProgram": ["4", "5"]
+        },
+        {
+            "id": "2",
+            "type": "click",
+            "selector": "ul.list-main li.link-btn a"
+        },
+        {
+            "id": "3",
+            "type": "timeout",
+            "time": "5000"
+        },
+        {
+            "id": "4",
+            "type": "extractor",
+            "subType": "url",
+            "selector": "#categoryArticles > ul h3 > a",
+            "name": "S:urls",
+            "multiple": true,
+            "textManipulation": {}
+        },
+        {
+            "id": "5",
+            "type": "foreach",
+            "array": "S:urls",
+            "name": "S:url",
+            "program": ["6", "7"]
+        },
+        {
+            "id": "6",
+            "type": "goto",
+            "link": "S:url"
+        },
+        {
+            "id": "7",
+            "type": "include",
+            "label": "liberte_scrapemap"
+        }
+    ]
+}

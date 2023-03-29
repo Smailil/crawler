@@ -13,7 +13,7 @@ const crawler = new PuppeteerCrawler({
     requestHandler: router,
 });
 
-const pathToFile = path.join(__dirname, '../json/newStatic_root.json');
+const pathToFile = path.join(__dirname, '../json/liberte_root.json');
 const jsonString = fs.readFileSync(pathToFile).toString();
 const jsonObj : JSONStruct = JSON.parse(jsonString);
 

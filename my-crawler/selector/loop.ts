@@ -1,5 +1,5 @@
 import {Page} from "puppeteer";
-import {ForeachStruct, SArray, WhileStruct, WhileOnExistsStruct, JSONStruct} from "../auxiliary/type.js";
+import {ForeachStruct, SArray, WhileStruct, LoopOnExistsStruct, JSONStruct} from "../auxiliary/type.js";
 import {findToS} from "../auxiliary/auxiliaryFunction.js";
 import {Scrape} from "../src/scrape.js";
 import PageManager from "../src/pageManager.js";
@@ -168,37 +168,50 @@ class WhileLoop {
     }
 }
 
-class WhileOnExists {
+class LoopOnExists {
     selector: string;
-    program: string[];
+    numberOfLoops: string;
+    loopProgram: string[];
+    afterLoopProgram: string[];
     browserController: PageManager;
     json: JSONStruct;
     page: Page;
     S: SArray;
     constructor(browserController: PageManager, json: JSONStruct,
-                whileOnExists: WhileOnExistsStruct, page: Page, S: SArray) {
+                loopOnExists: LoopOnExistsStruct, page: Page, S: SArray) {
         this.browserController = browserController;
         this.json = json;
         this.page = page;
         this.S = S;
-        this.selector = whileOnExists.selector;
-        this.program = whileOnExists.program;
+        this.selector = loopOnExists.selector;
+        this.numberOfLoops = loopOnExists.numberOfLoops;
+        this.loopProgram = loopOnExists.loopProgram;
+        this.afterLoopProgram = loopOnExists.afterLoopProgram;
     }
 
-    async WhileOnExistsDone() {
-        const url = this.page.url();
-        await this.browserController.closePage(this.page);
+    async LoopOnExistsDone() {
         let element = await this.page.$(this.selector);
-        while (element) {
-            const S = [...this.S];
-            const newPage = await this.browserController.newPage();
-            await newPage.goto(url);
-            const scrape = new Scrape(this.browserController, this.json, this.program, newPage, S);
+        const rawNumberOfLoops = this.numberOfLoops.startsWith("S:") ?
+            findToS(this.numberOfLoops.substring(2), this.S) : this.numberOfLoops;
+        if (!(rawNumberOfLoops instanceof Array) && rawNumberOfLoops !== null) {
+            if (rawNumberOfLoops === "") {
+                while (element) {
+                    const scrape = new Scrape(this.browserController, this.json, this.loopProgram, this.page, this.S);
+                    await scrape.LaunchProgram();
+                    element = await this.page.$(this.selector);
+                }
+            } else {
+                const intNumberOfLoops = parseInt(rawNumberOfLoops);
+                for (let i = 0; element && i < intNumberOfLoops; i++) {
+                    const scrape = new Scrape(this.browserController, this.json, this.loopProgram, this.page, this.S);
+                    await scrape.LaunchProgram();
+                    element = await this.page.$(this.selector);
+                }
+            }
+            const scrape = new Scrape(this.browserController, this.json, this.afterLoopProgram, this.page, this.S);
             await scrape.LaunchProgram();
-            element = await this.page.$(this.selector);
         }
-        this.S = [];
     }
 }
 
-export {Foreach, WhileLoop, WhileOnExists};
+export {Foreach, WhileLoop, LoopOnExists};

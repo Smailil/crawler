@@ -10,7 +10,7 @@ import {Goto} from "../selector/goto.js";
 import {BranchCondition, BranchConditionOnExists} from "../selector/branchCondition.js";
 import {Scrapemap} from "../selector/include.js";
 import {JSONStruct, SArray} from "../auxiliary/type.js";
-import {Foreach, WhileLoop, WhileOnExists} from "../selector/loop.js";
+import {Foreach, WhileLoop, LoopOnExists} from "../selector/loop.js";
 import PageManager from "./pageManager.js";
 import {Scroll} from "../selector/scroll.js";
 import {Decrement, Increment, Variable} from "../selector/variable.js";
@@ -116,10 +116,10 @@ class Scrape {
                         const whileLoop = new WhileLoop(this.browserController, this.json, selector, this.page, this.S);
                         await whileLoop.WhileLoopDone();
                         break;
-                    case "whileOnExists":
-                        const whileOnExists = new WhileOnExists(this.browserController,
+                    case "loopOnExists":
+                        const loopOnExists = new LoopOnExists(this.browserController,
                             this.json, selector, this.page, this.S);
-                        await whileOnExists.WhileOnExistsDone();
+                        await loopOnExists.LoopOnExistsDone();
                         break;
                     case "timeout":
                         const timeout = new Timeout(selector);

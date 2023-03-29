@@ -1,0 +1,55 @@
+{
+  "_id": "liberte_scrapemap",
+  "beginProgram": ["1", "2", "3", "4", "5"],
+  "selectors": [
+    {
+      "id": "1",
+      "type": "extractor",
+      "subType": "text",
+      "selector": "h1",
+      "name": "S:title",
+      "multiple": false,
+      "textManipulation": {}
+    },
+    {
+      "id": "2",
+      "type": "extractor",
+      "subType": "image",
+      "selector": "figure.image-article img.blur",
+      "name": "S:img",
+      "multiple": false,
+      "textManipulation": {}
+    },
+    {
+      "id": "3",
+      "type": "extractor",
+      "subType": "text",
+      "selector": "div.module-offset p",
+      "name": "S:text",
+      "multiple": true,
+      "textManipulation": {}
+    },
+    {
+      "id": "4",
+      "type": "extractor",
+      "subType": "text",
+      "selector": "footer div.module-users a",
+      "name": "S:authors",
+      "multiple": true,
+      "textManipulation": {}
+    },
+    {
+      "id": "5",
+      "type": "extractor",
+      "subType": "text",
+      "selector": "footer div.module-users span",
+      "name": "S:date",
+      "multiple": false,
+      "textManipulation": {
+        "trim": true,
+        "replaceText": "Publié ",
+        "replacementText": ""
+      }
+    }
+  ]
+}

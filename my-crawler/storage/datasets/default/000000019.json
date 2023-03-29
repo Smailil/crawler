@@ -1,7 +1,13 @@
 {
-	"img": "https://demo-site.at.ispras.ru/cart.png",
-	"title": "ThinkPad X230",
-	"text": "12.5\", Core i5 2.6GHz, 8GB, 180GB SSD, Win7 Pro 64bit",
-	"price": "₽ 1244.99",
-	"URL": "https://demo-site.at.ispras.ru/product/19"
+	"title": "Aucun décès et 3 nouveaux cas",
+	"img": "https://www.liberte-algerie.com/storage/images/article/d_490562d53b59737323c6ded09e512780.jpg",
+	"text": [
+		"■ Trois (3) nouveaux  cas  confirmés  de  Covid-19  et  4 cas  de  guérison  ont  été  enregistrés, alors  qu’aucun  décès  n’a  été  déploré  ces  dernières  24 heures  en  Algérie, a indiqué hier le ministère de la Santé dans un communiqué. Le total des cas confirmés s’élève ainsi à 265 730, celui des décès demeure inchangé, soit 6 874, alors que le nombre total de patients guéris passe à 178 327.",
+		"APS"
+	],
+	"authors": [
+		"APS"
+	],
+	"date": "13 Avril 2022 à 12:00",
+	"URL": "https://www.liberte-algerie.com/actualite/aucun-deces-et-3-nouveaux-cas-376422"
 }

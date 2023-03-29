@@ -1,0 +1,9 @@
+{
+	"id": "bKiONEhzUJzrk5r",
+	"json": "{\"id\":\"bKiONEhzUJzrk5r\",\"url\":\"https://www.liberte-algerie.com/actualite\",\"loadedUrl\":\"https://www.liberte-algerie.com/actualite\",\"uniqueKey\":\"https://www.liberte-algerie.com/actualite\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2023-03-29T12:59:14.006Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.liberte-algerie.com/actualite",
+	"url": "https://www.liberte-algerie.com/actualite"
+}

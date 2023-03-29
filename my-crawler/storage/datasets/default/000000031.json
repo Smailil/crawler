@@ -1,7 +1,17 @@
 {
-	"img": "https://demo-site.at.ispras.ru/cart.png",
-	"title": "Lenovo Legion Y520-15IKBM",
-	"text": "Lenovo Legion Y520-15IKBM, 15.6\" FHD IPS, Core i7-7700HQ, 8GB, 128GB SSD + 1TB, GeForce GTX",
-	"price": "₽ 1149.00",
-	"URL": "https://demo-site.at.ispras.ru/product/31"
+	"title": "Cinq activistes acquittés",
+	"img": "https://www.liberte-algerie.com/storage/images/article/d_b078bccb25867bbe01e416d3173b020f.jpg",
+	"text": [
+		"Les cinq activistes de Boghni, dont Samir Hamri dit Samir JSK, poursuivis pour “appel à attroupement non armé”, ayant comparu le 4 avril devant le tribunal correctionnel de Draâ El-Mizan (au sud-ouest de Tizi Ouzou), ont été acquittés hier.",
+		"À rappeler que le procureur de la République près cette instance judiciaire avait requis à leur encontre six mois de prison ferme et une amende de 10 000 DA.  Le 4 avril, le même tribunal correctionnel de Draâ El-Mizan avait déjà rendu le verdict du procès de douze activistes originaires d’Ath Bouadou et d’Agouni Gueghrane, relevant de la daïra des Ouadhias.",
+		"Dix d’entre eux ont été condamnés à dix-huit mois de prison ferme et deux autres ont bénéficié de la relaxe. Ils ont été poursuivis pour “entrave au bon déroulement des élections législatives du 12 juin 2021” et “destruction d’urnes de vote”.",
+		"À rappeler que le procureur avait requis trois ans de prison ferme à leur encontre le 7 mars dernier. Les avocats de la défense vont introduire un pourvoi en cassation. Hier, la même instance judiciaire a jugé cinq autres activistes de Boghni pour “incitation à attroupement non armé” suite un appel affiché sur les murs de la ville de Boghni. À signaler que l’un d’eux a eu un malaise de quelques minutes alors qu’il comparaissait devant la juge.",
+		"De leur côté, les avocats de la défense ont plaidé l’acquittement de ces activistes tout en démontrant que leur dossier est vide et que l’appel ne portait le nom d’aucun de ces prévenus. Au terme des plaidoiries, le procureur de la République près ce tribunal a requis six mois de prison ferme à leur encontre, assortie d’une amende de 100 000 DA.",
+		"O. Ghilès"
+	],
+	"authors": [
+		"O. Ghilès"
+	],
+	"date": "12 Avril 2022 à 12:00",
+	"URL": "https://www.liberte-algerie.com/actualite/cinq-activistes-acquittes-376371"
 }

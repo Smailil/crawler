@@ -117,11 +117,13 @@ type WhileStruct = {
     typeOfOperand: string;
 }
 
-type WhileOnExistsStruct = {
+type LoopOnExistsStruct = {
     id: string;
     type: string;
     selector: string;
-    program: string[];
+    numberOfLoops: string;
+    loopProgram: string[];
+    afterLoopProgram: string[];
 }
 
 type TimeoutStruct = {
@@ -148,7 +150,7 @@ interface StoObject {
 
 type SelectorStruct = ExtractorStruct & AttributeExtractorStruct & BranchConditionStruct & BranchConditionOnExistsStruct &
     GotoStruct & IncludeStruct & ForeachStruct & FromHTMLExtractorStruct & ScrollStruct & VariableStruct &
-    IncrementStruct & DecrementStruct & WhileStruct & WhileOnExistsStruct & TimeoutStruct & ClickStruct & InputStruct;
+    IncrementStruct & DecrementStruct & WhileStruct & LoopOnExistsStruct & TimeoutStruct & ClickStruct & InputStruct;
 
 type JSONStruct = {
     _id: string;
@@ -159,6 +161,6 @@ type JSONStruct = {
 
 export {ExtractorStruct, AttributeExtractorStruct, ArrayInS, BranchConditionStruct, BranchConditionOnExistsStruct,
     GotoStruct, TextManipulation, IncludeStruct, ForeachStruct, FromHTMLExtractorStruct, StoObject, ScrollStruct,
-    VariableStruct, IncrementStruct, DecrementStruct, WhileStruct, WhileOnExistsStruct, TimeoutStruct, ClickStruct,
+    VariableStruct, IncrementStruct, DecrementStruct, WhileStruct, LoopOnExistsStruct, TimeoutStruct, ClickStruct,
     SArray, InputStruct, JSONStruct};
 
