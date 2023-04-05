@@ -1,9 +1,9 @@
 {
-  "usableSessionsCount": 3,
+  "usableSessionsCount": 2,
   "retiredSessionsCount": 0,
   "sessions": [
     {
-      "id": "session_fSlBB4FQ6M",
+      "id": "session_pFTDAz7t1f",
       "cookieJar": {
         "version": "tough-cookie@4.1.2",
         "storeType": "MemoryCookieStore",
@@ -16,14 +16,14 @@
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2023-04-05T14:44:22.355Z",
-      "createdAt": "2023-04-05T13:54:22.355Z",
+      "expiresAt": "2023-04-05T15:35:13.852Z",
+      "createdAt": "2023-04-05T14:45:13.852Z",
       "usageCount": 0,
       "maxUsageCount": 50,
       "errorScore": 0
     },
     {
-      "id": "session_6jLpdua4Yg",
+      "id": "session_Qzw0HiajGa",
       "cookieJar": {
         "version": "tough-cookie@4.1.2",
         "storeType": "MemoryCookieStore",
@@ -34,72 +34,42 @@
         "cookies": [
           {
             "key": "_ga",
-            "value": "GA1.1.399073959.1680702864",
-            "expires": "2024-05-09T13:54:24.060Z",
+            "value": "GA1.1.18195522.1680705915",
+            "expires": "2024-05-09T14:45:15.346Z",
             "domain": "mfa.gov.dz",
             "path": "/",
             "hostOnly": false,
-            "creation": "2023-04-05T13:54:24.927Z",
-            "lastAccessed": "2023-04-05T14:05:20.968Z"
+            "creation": "2023-04-05T14:45:15.622Z",
+            "lastAccessed": "2023-04-05T14:45:15.622Z"
           },
           {
             "key": "_ga_9YDET50528",
-            "value": "GS1.1.1680702864.1.1.1680703520.0.0.0",
-            "expires": "2024-05-09T14:05:20.590Z",
+            "value": "GS1.1.1680705915.1.0.1680705915.0.0.0",
+            "expires": "2024-05-09T14:45:15.346Z",
             "domain": "mfa.gov.dz",
             "path": "/",
             "hostOnly": false,
-            "creation": "2023-04-05T13:54:24.939Z",
-            "lastAccessed": "2023-04-05T14:05:20.963Z"
+            "creation": "2023-04-05T14:45:15.628Z",
+            "lastAccessed": "2023-04-05T14:45:15.628Z"
           },
           {
             "key": "TS01a02549",
-            "value": "01fa751f03acfb85e081d58d212550fef94f29bdcb1572ad1abca43b195244f6ea0f5d4d15020ee8663246c6f409518fcc2cd555cb",
-            "expires": "2023-04-05T14:44:24.925Z",
+            "value": "01fa751f030864d6616ec907020101364f9cec9a6665e924a71f1f67ee3969f57e80837cc7613bebe3ac60407160bcdb38b9d58c76",
+            "expires": "2023-04-05T15:35:15.620Z",
             "domain": "www.mfa.gov.dz",
             "path": "/",
             "hostOnly": false,
-            "creation": "2023-04-05T13:54:24.942Z",
-            "lastAccessed": "2023-04-05T14:05:20.965Z"
-          },
-          {
-            "key": "TS01007d4c",
-            "value": "01fa751f034296ff842c6ea7b9cd317d88b70c4785401b8dafc267ddf6408974d3395ced593400106b1fdaf0b16da467eb2b7ecccc",
-            "expires": "2023-04-05T14:55:20.962Z",
-            "domain": "mfa.gov.dz",
-            "path": "/",
-            "hostOnly": false,
-            "creation": "2023-04-05T14:05:20.966Z",
-            "lastAccessed": "2023-04-05T14:05:20.966Z"
+            "creation": "2023-04-05T14:45:15.631Z",
+            "lastAccessed": "2023-04-05T14:45:15.631Z"
           }
         ]
       },
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2023-04-05T14:44:22.357Z",
-      "createdAt": "2023-04-05T13:54:22.357Z",
-      "usageCount": 1,
-      "maxUsageCount": 50,
-      "errorScore": 1
-    },
-    {
-      "id": "session_jLttkU6tGE",
-      "cookieJar": {
-        "version": "tough-cookie@4.1.2",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": []
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2023-04-05T14:55:19.862Z",
-      "createdAt": "2023-04-05T14:05:19.862Z",
-      "usageCount": 0,
+      "expiresAt": "2023-04-05T15:35:13.854Z",
+      "createdAt": "2023-04-05T14:45:13.854Z",
+      "usageCount": 2,
       "maxUsageCount": 50,
       "errorScore": 0
     }

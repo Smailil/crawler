@@ -1,9 +1,9 @@
 {
 	"id": "PM4UGLHamUIuMTa",
-	"json": "{\"id\":\"PM4UGLHamUIuMTa\",\"url\":\"https://www.mfa.gov.dz/press-and-information/news-and-press-releases\",\"loadedUrl\":\"https://www.mfa.gov.dz/press-and-information/news-and-press-releases\",\"uniqueKey\":\"https://www.mfa.gov.dz/press-and-information/news-and-press-releases\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":1,\"errorMessages\":[\"Error: net::ERR_ABORTED at https://www.mfa.gov.dz/press-and-information/news-and-press-releases?page=28\\n    at navigate (/home/smailil/WebstormProjects/crawler/my-crawler/node_modules/puppeteer-core/src/common/Frame.ts:362:13)\\n    at runMicrotasks (<anonymous>)\\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\\n    at async Frame.goto (/home/smailil/WebstormProjects/crawler/my-crawler/node_modules/puppeteer-core/src/common/Frame.ts:315:17)\\n    at async CDPPage.goto (/home/smailil/WebstormProjects/crawler/my-crawler/node_modules/puppeteer-core/src/common/Page.ts:909:12)\\n    at async ForeachDone (file:///home/smailil/WebstormProjects/crawler/my-crawler/selector/loop.ts:38:17)\\n    at async Scrape.LaunchProgram (file:///home/smailil/WebstormProjects/crawler/my-crawler/src/scrape.ts:97:25)\\n    at async file:///home/smailil/WebstormProjects/crawler/my-crawler/src/routes.ts:22:5\\n    at async wrap (/home/smailil/WebstormProjects/crawler/my-crawler/node_modules/@apify/src/index.ts:77:27)\"],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":5}}}",
+	"json": "{\"id\":\"PM4UGLHamUIuMTa\",\"url\":\"https://www.mfa.gov.dz/press-and-information/news-and-press-releases\",\"loadedUrl\":\"https://www.mfa.gov.dz/press-and-information/news-and-press-releases\",\"uniqueKey\":\"https://www.mfa.gov.dz/press-and-information/news-and-press-releases\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2023-04-05T14:57:42.981Z\"}",
 	"method": "GET",
-	"orderNo": 1680703516642,
-	"retryCount": 1,
+	"orderNo": null,
+	"retryCount": 0,
 	"uniqueKey": "https://www.mfa.gov.dz/press-and-information/news-and-press-releases",
 	"url": "https://www.mfa.gov.dz/press-and-information/news-and-press-releases"
 }

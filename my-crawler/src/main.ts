@@ -9,7 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const crawler = new PuppeteerCrawler({
     requestHandlerTimeoutSecs: 30000,
-    headless: false,
+    headless: true,
     requestHandler: router,
 });
 

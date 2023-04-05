@@ -1,37 +1,29 @@
 {
-  "requestsFinished": 0,
+  "requestsFinished": 1,
   "requestsFailed": 0,
   "requestsRetries": 0,
   "requestsFailedPerMinute": 0,
   "requestsFinishedPerMinute": 0,
-  "requestMinDurationMillis": null,
-  "requestMaxDurationMillis": 0,
+  "requestMinDurationMillis": 749131,
+  "requestMaxDurationMillis": 749131,
   "requestTotalFailedDurationMillis": 0,
-  "requestTotalFinishedDurationMillis": 0,
-  "crawlerStartedAt": "2023-04-05T13:54:22.323Z",
-  "crawlerFinishedAt": null,
-  "statsPersistedAt": "2023-04-05T14:05:22.335Z",
-  "crawlerRuntimeMillis": 660099,
-  "crawlerLastStartTimestamp": 1680702862237,
-  "requestRetryHistogram": [],
+  "requestTotalFinishedDurationMillis": 749131,
+  "crawlerStartedAt": "2023-04-05T14:45:13.818Z",
+  "crawlerFinishedAt": "2023-04-05T14:57:43.071Z",
+  "statsPersistedAt": "2023-04-05T14:57:43.071Z",
+  "crawlerRuntimeMillis": 749337,
+  "crawlerLastStartTimestamp": 1680705913734,
+  "requestRetryHistogram": [
+    1
+  ],
   "statsId": 0,
   "requestAvgFailedDurationMillis": null,
-  "requestAvgFinishedDurationMillis": null,
-  "requestTotalDurationMillis": 0,
-  "requestsTotal": 0,
+  "requestAvgFinishedDurationMillis": 749131,
+  "requestTotalDurationMillis": 749131,
+  "requestsTotal": 1,
   "requestsWithStatusCode": {
-    "200": 2
+    "200": 1
   },
   "errors": {},
-  "retryErrors": {
-    "<anonymous>": {
-      "missing error code": {
-        "Error": {
-          "net::ERR_ABORTED at https://www.mfa.gov.dz/press-and-information/news-and-press-releases?page=28": {
-            "count": 1
-          }
-        }
-      }
-    }
-  }
+  "retryErrors": {}
 }

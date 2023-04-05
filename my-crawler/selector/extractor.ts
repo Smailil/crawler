@@ -52,8 +52,8 @@ class TextExtractor extends Extractor {
         const rawSelector = this.selector.startsWith("S:") ?
             findToS(this.selector.substring(2), this.S): this.selector;
         if (!(rawSelector instanceof Array) && rawSelector) {
+            const previousValue = findToS(this.name.substring(2), this.S);
             try {
-                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = await this.page.$$eval(rawSelector, (elements) => {
                         return elements.map(element => element.textContent ?? '');
@@ -63,13 +63,15 @@ class TextExtractor extends Extractor {
                             this.name.substring(2),
                             textManipulation(elements, this.textManipulation)
                         ]);
-                    } else if (typeof previousValue === 'string') {
+                    }
+                    else if (typeof previousValue === 'string') {
                         this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
                         this.S.push([
                             this.name.substring(2),
                             [previousValue, ...textManipulation(elements, this.textManipulation)]
                         ]);
-                    } else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
                         this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
                         this.S.push([
                             this.name.substring(2),
@@ -103,7 +105,17 @@ class TextExtractor extends Extractor {
                     }
                 }
             } catch (error) {
-                this.S.push([this.name.substring(2), '']);
+                if (previousValue === null) {
+                    this.S.push([this.name.substring(2), '']);
+                }
+                else if (typeof previousValue === 'string') {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [previousValue, '']]);
+                }
+                else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [...(previousValue as string[]), '']]);
+                }
             }
         }
     }
@@ -117,8 +129,8 @@ class ImageExtractor extends Extractor {
         const rawSelector = this.selector.startsWith("S:") ?
             findToS(this.selector.substring(2), this.S): this.selector;
         if (!(rawSelector instanceof Array) && rawSelector) {
+            const previousValue = findToS(this.name.substring(2), this.S);
             try {
-                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = await this.page.$$eval(rawSelector, (elements) => {
                         return elements.map(element => (element as HTMLImageElement).src ?? '');
@@ -169,7 +181,17 @@ class ImageExtractor extends Extractor {
                     }
                 }
             } catch (error) {
-                this.S.push([this.name.substring(2), '']);
+                if (previousValue === null) {
+                    this.S.push([this.name.substring(2), '']);
+                }
+                else if (typeof previousValue === 'string') {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [previousValue, '']]);
+                }
+                else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [...(previousValue as string[]), '']]);
+                }
             }
         }
     }
@@ -183,8 +205,8 @@ class UrlExtractor extends Extractor {
         const rawSelector = this.selector.startsWith("S:") ?
             findToS(this.selector.substring(2), this.S): this.selector;
         if (!(rawSelector instanceof Array) && rawSelector) {
+            const previousValue = findToS(this.name.substring(2), this.S);
             try {
-                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = await this.page.$$eval(rawSelector, (elements) => {
                         return elements.map(element => (element as HTMLAnchorElement).href ?? '');
@@ -235,7 +257,17 @@ class UrlExtractor extends Extractor {
                     }
                 }
             } catch (error) {
-                this.S.push([this.name.substring(2), '']);
+                if (previousValue === null) {
+                    this.S.push([this.name.substring(2), '']);
+                }
+                else if (typeof previousValue === 'string') {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [previousValue, '']]);
+                }
+                else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [...(previousValue as string[]), '']]);
+                }
             }
         }
     }
@@ -262,8 +294,8 @@ class AttributeExtractor {
         const rawSelector = this.selector.startsWith("S:") ?
             findToS(this.selector.substring(2), this.S): this.selector;
         if (!(rawSelector instanceof Array) && rawSelector) {
+            const previousValue = findToS(this.name.substring(2), this.S);
             try {
-                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = await this.page.$$eval(rawSelector, (elements) => {
                         return elements.map(element => element.getAttribute(this.attribute) ?? '');
@@ -314,7 +346,17 @@ class AttributeExtractor {
                     }
                 }
             } catch (error) {
-                this.S.push([this.name.substring(2), '']);
+                if (previousValue === null) {
+                    this.S.push([this.name.substring(2), '']);
+                }
+                else if (typeof previousValue === 'string') {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [previousValue, '']]);
+                }
+                else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [...(previousValue as string[]), '']]);
+                }
             }
         }
     }
@@ -328,8 +370,8 @@ class HTMLExtractor extends Extractor {
         const rawSelector = this.selector.startsWith("S:") ?
             findToS(this.selector.substring(2), this.S) : this.selector;
         if (!(rawSelector instanceof Array) && rawSelector) {
+            const previousValue = findToS(this.name.substring(2), this.S);
             try {
-                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = await this.page.$$eval(rawSelector, (elements) => {
                         return elements.map(element => element.innerHTML ?? '');
@@ -380,7 +422,17 @@ class HTMLExtractor extends Extractor {
                     }
                 }
             } catch (error) {
-                this.S.push([this.name.substring(2), '']);
+                if (previousValue === null) {
+                    this.S.push([this.name.substring(2), '']);
+                }
+                else if (typeof previousValue === 'string') {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [previousValue, '']]);
+                }
+                else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [...(previousValue as string[]), '']]);
+                }
             }
         }
     }
@@ -396,12 +448,12 @@ class TextFromHTMLExtractor extends FromHTMLExtractor {
         const rawHTML = this.html.startsWith("S:") ?
             findToS(this.html.substring(2), this.S) : this.html;
         if (!(rawSelector instanceof Array) && rawSelector && !(rawHTML instanceof Array) && rawHTML) {
+            const previousValue = findToS(this.name.substring(2), this.S);
             try {
                 // Parse the HTML string using JSDOM
                 const { window } = new JSDOM(rawHTML);
                 const { document } = window;
 
-                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = document.querySelectorAll(rawSelector as keyof HTMLElementTagNameMap);
                     const textContents = Array.from(elements).map(element =>
@@ -453,7 +505,17 @@ class TextFromHTMLExtractor extends FromHTMLExtractor {
                     }
                 }
             } catch (error) {
-                this.S.push([this.name.substring(2), '']);
+                if (previousValue === null) {
+                    this.S.push([this.name.substring(2), '']);
+                }
+                else if (typeof previousValue === 'string') {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [previousValue, '']]);
+                }
+                else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [...(previousValue as string[]), '']]);
+                }
             }
         }
     }
@@ -469,12 +531,12 @@ class UrlFromHTMLExtractor extends FromHTMLExtractor {
         const rawHTML = this.html.startsWith("S:") ?
             findToS(this.html.substring(2), this.S) : this.html;
         if (!(rawSelector instanceof Array) && rawSelector && !(rawHTML instanceof Array) && rawHTML) {
+            const previousValue = findToS(this.name.substring(2), this.S);
             try {
                 // Parse the HTML string using JSDOM
                 const { window } = new JSDOM(rawHTML);
                 const { document } = window;
 
-                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = document.querySelectorAll(rawSelector as keyof HTMLElementTagNameMap);
                     const hrefs = Array.from(elements).map(element =>
@@ -526,7 +588,17 @@ class UrlFromHTMLExtractor extends FromHTMLExtractor {
                     }
                 }
             } catch (error) {
-                this.S.push([this.name.substring(2), '']);
+                if (previousValue === null) {
+                    this.S.push([this.name.substring(2), '']);
+                }
+                else if (typeof previousValue === 'string') {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [previousValue, '']]);
+                }
+                else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                    this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                    this.S.push([this.name.substring(2), [...(previousValue as string[]), '']]);
+                }
             }
         }
     }

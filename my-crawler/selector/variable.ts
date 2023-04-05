@@ -24,7 +24,6 @@ class Variable {
             } else{
                 this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
                 this.S.push([this.name.substring(2), textManipulation(rawValue, this.textManipulation)]);
-                console.log(this.S);
             }
         }
     }
