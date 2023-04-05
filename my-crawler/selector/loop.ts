@@ -1,6 +1,6 @@
 import {Page} from "puppeteer";
 import {ForeachStruct, SArray, WhileStruct, LoopOnExistsStruct, JSONStruct} from "../auxiliary/type.js";
-import {findToS} from "../auxiliary/auxiliaryFunction.js";
+import {changeType, findToS} from "../auxiliary/auxiliaryFunction.js";
 import {Scrape} from "../src/scrape.js";
 import PageManager from "../src/pageManager.js";
 
@@ -72,94 +72,100 @@ class WhileLoop {
             findToS(this.firstOperand.substring(2), this.S): this.firstOperand;
         const withoutSSecondOperand = this.secondOperand.startsWith("S:") ?
             findToS(this.secondOperand.substring(2), this.S): this.secondOperand;
-        const url = this.page.url();
-        await this.browserController.closePage(this.page);
         if(withoutSFirstOperand && withoutSSecondOperand &&
             !(withoutSFirstOperand instanceof Array) && !(withoutSSecondOperand instanceof Array)) {
-            let rawFirstOperand;
-            let rawSecondOperand;
-            switch (this.typeOfOperand) {
-                case "string":
-                    rawFirstOperand = withoutSFirstOperand;
-                    rawSecondOperand = withoutSSecondOperand;
-                    break;
-                case "integer":
-                    rawFirstOperand = parseInt(withoutSFirstOperand);
-                    rawSecondOperand = parseInt(withoutSSecondOperand);
-                    break;
-                case "float":
-                    rawFirstOperand = parseFloat(withoutSFirstOperand);
-                    rawSecondOperand = parseFloat(withoutSSecondOperand);
-                    break;
-                case "date":
-                    rawFirstOperand = Date.parse(withoutSFirstOperand);
-                    rawSecondOperand = Date.parse(withoutSSecondOperand);
-                    break;
-                default:
-                    rawFirstOperand = withoutSFirstOperand;
-                    rawSecondOperand = withoutSSecondOperand;
-                    console.log("Type of operand is not supported");
-            }
+            let rawFirstOperand = changeType(withoutSFirstOperand, this.typeOfOperand);
+            let rawSecondOperand = changeType(withoutSSecondOperand, this.typeOfOperand);
             switch (this.logicalOperation) {
                 case "<=":
                     while (rawFirstOperand <= rawSecondOperand) {
-                        const S = [...this.S];
-                        const newPage = await this.browserController.newPage();
-                        await newPage.goto(url);
-                        const scrape = new Scrape(this.browserController, this.json, this.program, newPage, S);
+                        const scrape = new Scrape(this.browserController, this.json, this.program, this.page, this.S);
                         await scrape.LaunchProgram();
+                        const withoutSFirstOperand = this.firstOperand.startsWith("S:") ?
+                            findToS(this.firstOperand.substring(2), this.S): this.firstOperand;
+                        const withoutSSecondOperand = this.secondOperand.startsWith("S:") ?
+                            findToS(this.secondOperand.substring(2), this.S): this.secondOperand;
+                        if(withoutSFirstOperand && withoutSSecondOperand &&
+                            !(withoutSFirstOperand instanceof Array) && !(withoutSSecondOperand instanceof Array)) {
+                            rawFirstOperand = changeType(withoutSFirstOperand, this.typeOfOperand);
+                            rawSecondOperand = changeType(withoutSSecondOperand, this.typeOfOperand);
+                        }
                     }
-                    this.S = [];
                     break;
                 case ">=":
                     while (rawFirstOperand >= rawSecondOperand) {
-                        const S = [...this.S];
-                        const newPage = await this.browserController.newPage();
-                        await newPage.goto(url);
-                        const scrape = new Scrape(this.browserController, this.json, this.program, newPage, S);
+                        const scrape = new Scrape(this.browserController, this.json, this.program, this.page, this.S);
                         await scrape.LaunchProgram();
+                        const withoutSFirstOperand = this.firstOperand.startsWith("S:") ?
+                            findToS(this.firstOperand.substring(2), this.S): this.firstOperand;
+                        const withoutSSecondOperand = this.secondOperand.startsWith("S:") ?
+                            findToS(this.secondOperand.substring(2), this.S): this.secondOperand;
+                        if(withoutSFirstOperand && withoutSSecondOperand &&
+                            !(withoutSFirstOperand instanceof Array) && !(withoutSSecondOperand instanceof Array)) {
+                            rawFirstOperand = changeType(withoutSFirstOperand, this.typeOfOperand);
+                            rawSecondOperand = changeType(withoutSSecondOperand, this.typeOfOperand);
+                        }
                     }
-                    this.S = [];
                     break;
                 case "<":
                     while (rawFirstOperand < rawSecondOperand) {
-                        const S = [...this.S];
-                        const newPage = await this.browserController.newPage();
-                        await newPage.goto(url);
-                        const scrape = new Scrape(this.browserController, this.json, this.program, newPage, S);
+                        const scrape = new Scrape(this.browserController, this.json, this.program, this.page, this.S);
                         await scrape.LaunchProgram();
+                        const withoutSFirstOperand = this.firstOperand.startsWith("S:") ?
+                            findToS(this.firstOperand.substring(2), this.S): this.firstOperand;
+                        const withoutSSecondOperand = this.secondOperand.startsWith("S:") ?
+                            findToS(this.secondOperand.substring(2), this.S): this.secondOperand;
+                        if(withoutSFirstOperand && withoutSSecondOperand &&
+                            !(withoutSFirstOperand instanceof Array) && !(withoutSSecondOperand instanceof Array)) {
+                            rawFirstOperand = changeType(withoutSFirstOperand, this.typeOfOperand);
+                            rawSecondOperand = changeType(withoutSSecondOperand, this.typeOfOperand);
+                        }
                     }
-                    this.S = [];
                     break;
                 case ">":
                     while (rawFirstOperand > rawSecondOperand) {
-                        const S = [...this.S];
-                        const newPage = await this.browserController.newPage();
-                        await newPage.goto(url);
-                        const scrape = new Scrape(this.browserController, this.json, this.program, newPage, S);
+                        const scrape = new Scrape(this.browserController, this.json, this.program, this.page, this.S);
                         await scrape.LaunchProgram();
+                        const withoutSFirstOperand = this.firstOperand.startsWith("S:") ?
+                            findToS(this.firstOperand.substring(2), this.S): this.firstOperand;
+                        const withoutSSecondOperand = this.secondOperand.startsWith("S:") ?
+                            findToS(this.secondOperand.substring(2), this.S): this.secondOperand;
+                        if(withoutSFirstOperand && withoutSSecondOperand &&
+                            !(withoutSFirstOperand instanceof Array) && !(withoutSSecondOperand instanceof Array)) {
+                            rawFirstOperand = changeType(withoutSFirstOperand, this.typeOfOperand);
+                            rawSecondOperand = changeType(withoutSSecondOperand, this.typeOfOperand);
+                        }
                     }
-                    this.S = [];
                     break;
                 case "==":
                     while (rawFirstOperand === rawSecondOperand) {
-                        const S = [...this.S];
-                        const newPage = await this.browserController.newPage();
-                        await newPage.goto(url);
-                        const scrape = new Scrape(this.browserController, this.json, this.program, newPage, S);
+                        const scrape = new Scrape(this.browserController, this.json, this.program, this.page, this.S);
                         await scrape.LaunchProgram();
+                        const withoutSFirstOperand = this.firstOperand.startsWith("S:") ?
+                            findToS(this.firstOperand.substring(2), this.S): this.firstOperand;
+                        const withoutSSecondOperand = this.secondOperand.startsWith("S:") ?
+                            findToS(this.secondOperand.substring(2), this.S): this.secondOperand;
+                        if(withoutSFirstOperand && withoutSSecondOperand &&
+                            !(withoutSFirstOperand instanceof Array) && !(withoutSSecondOperand instanceof Array)) {
+                            rawFirstOperand = changeType(withoutSFirstOperand, this.typeOfOperand);
+                            rawSecondOperand = changeType(withoutSSecondOperand, this.typeOfOperand);
+                        }
                     }
-                    this.S = [];
                     break;
                 case "!=":
                     while (rawFirstOperand !== rawSecondOperand) {
-                        const S = [...this.S];
-                        const newPage = await this.browserController.newPage();
-                        await newPage.goto(url);
-                        const scrape = new Scrape(this.browserController, this.json, this.program, newPage, S);
+                        const scrape = new Scrape(this.browserController, this.json, this.program, this.page, this.S);
                         await scrape.LaunchProgram();
+                        const withoutSFirstOperand = this.firstOperand.startsWith("S:") ?
+                            findToS(this.firstOperand.substring(2), this.S): this.firstOperand;
+                        const withoutSSecondOperand = this.secondOperand.startsWith("S:") ?
+                            findToS(this.secondOperand.substring(2), this.S): this.secondOperand;
+                        if(withoutSFirstOperand && withoutSSecondOperand &&
+                            !(withoutSFirstOperand instanceof Array) && !(withoutSSecondOperand instanceof Array)) {
+                            rawFirstOperand = changeType(withoutSFirstOperand, this.typeOfOperand);
+                            rawSecondOperand = changeType(withoutSSecondOperand, this.typeOfOperand);
+                        }
                     }
-                    this.S = [];
                     break;
                 default:
                     console.log("Logical operation is not supported");

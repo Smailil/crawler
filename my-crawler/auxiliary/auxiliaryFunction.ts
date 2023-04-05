@@ -42,5 +42,22 @@ const textManipulation = (texts: string | string[], textManipulationStruct: Text
     }
 };
 
+const changeType = (operand : string, type : string) => {
+    switch (type) {
+        case 'string':
+            return operand;
+        case 'integer':
+            return parseInt(operand);
+        case 'float':
+            return parseFloat(operand);
+        case 'date':
+            return new Date(operand);
+        default:
+            console.log("Type of operand is not supported");
+            return operand;
+    }
 
-    export {findToS, textManipulation};
+}
+
+
+export {findToS, textManipulation, changeType};

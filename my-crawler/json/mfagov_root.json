@@ -1,7 +1,7 @@
 {
   "_id": "mfagov_root",
   "startUrls": ["https://www.mfa.gov.dz/press-and-information/news-and-press-releases"],
-  "beginProgram": ["1", "2"],
+  "beginProgram": ["1", "2", "12"],
   "selectors": [
     {
       "id": "1",
@@ -16,7 +16,7 @@
       "firstOperand": "S:page",
       "logicalOperation": "<",
       "secondOperand": "28",
-      "program": ["3", "4", "7", "12", "13", "14"],
+      "program": ["3", "4", "9", "10", "11"],
       "typeOfOperand": "integer"
     },
     {
@@ -30,80 +30,76 @@
     },
     {
       "id": "4",
-      "type": "foreach",
-      "array": "S:urls",
-      "name": "S:url",
-      "program": ["5", "6"]
-    },
-    {
-      "id": "5",
-      "type": "goto",
-      "link": "S:url"
-    },
-    {
-      "id": "6",
-      "type": "include",
-      "label": "mfagov_scrapemap"
-    },
-    {
-      "id": "7",
       "type": "branchCondition",
       "firstOperand": "S:page",
       "logicalOperation": "==",
       "secondOperand": "1",
-      "ifProgram": ["8"],
-      "elseProgram": ["9"],
+      "ifProgram": ["5"],
+      "elseProgram": ["6"],
       "typeOfOperand": "integer"
+    },
+    {
+      "id": "5",
+      "type": "variable",
+      "name": "S:buttonSelector",
+      "value": "li.page-item:nth-of-type(2) a.page-link",
+      "textManipulation": {}
+    },
+    {
+      "id": "6",
+      "type": "branchCondition",
+      "firstOperand": "S:page",
+      "logicalOperation": "==",
+      "secondOperand": "2",
+      "ifProgram": ["7"],
+      "elseProgram": ["8"],
+      "typeOfOperand": "integer"
+    },
+    {
+      "id": "7",
+      "type": "variable",
+      "name": "S:buttonSelector",
+      "value": "li.page-item:nth-of-type(4) a.page-link",
+      "textManipulation": {}
     },
     {
       "id": "8",
       "type": "variable",
       "name": "S:buttonSelector",
-      "value": "li.page-item:nth-child(2) > a",
+      "value": "li.page-item:nth-of-type(5) a.page-link",
       "textManipulation": {}
     },
     {
       "id": "9",
-      "type": "branchCondition",
-      "firstOperand": "S:page",
-      "logicalOperation": "==",
-      "secondOperand": "2",
-      "ifProgram": ["10"],
-      "elseProgram": ["11"],
-      "typeOfOperand": "integer"
+      "type": "click",
+      "selector": "S:buttonSelector"
     },
     {
       "id": "10",
-      "type": "variable",
-      "name": "S:buttonSelector",
-      "value": "li.page-item:nth-child(3) > a",
-      "textManipulation": {}
+      "type": "timeout",
+      "time": "3000"
     },
     {
       "id": "11",
-      "type": "variable",
-      "name": "S:buttonSelector",
-      "value": "li.page-item:nth-child(4) > a",
-      "textManipulation": {}
+      "type": "increment",
+      "name": "S:page"
     },
     {
       "id": "12",
-      "type": "extractor",
-      "subType": "url",
-      "selector": "S:buttonSelector",
-      "name": "S:buttonUrl",
-      "multiple": false,
-      "textManipulation": {}
+      "type": "foreach",
+      "array": "S:urls",
+      "name": "S:url",
+      "program": ["13", "14"]
     },
     {
       "id": "13",
       "type": "goto",
-      "link": "S:buttonUrl"
+      "link": "S:url"
     },
     {
       "id": "14",
-      "type": "increment",
-      "name": "S:page"
+      "type": "include",
+      "label": "mfagov_scrapemap"
     }
   ]
 }

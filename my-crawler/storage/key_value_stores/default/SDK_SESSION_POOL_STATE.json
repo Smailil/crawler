@@ -1,9 +1,9 @@
 {
-  "usableSessionsCount": 2,
+  "usableSessionsCount": 3,
   "retiredSessionsCount": 0,
   "sessions": [
     {
-      "id": "session_Bexn5ydr8h",
+      "id": "session_fSlBB4FQ6M",
       "cookieJar": {
         "version": "tough-cookie@4.1.2",
         "storeType": "MemoryCookieStore",
@@ -16,14 +16,14 @@
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2023-03-29T14:06:25.164Z",
-      "createdAt": "2023-03-29T13:16:25.164Z",
+      "expiresAt": "2023-04-05T14:44:22.355Z",
+      "createdAt": "2023-04-05T13:54:22.355Z",
       "usageCount": 0,
       "maxUsageCount": 50,
       "errorScore": 0
     },
     {
-      "id": "session_cza7djYtbs",
+      "id": "session_6jLpdua4Yg",
       "cookieJar": {
         "version": "tough-cookie@4.1.2",
         "storeType": "MemoryCookieStore",
@@ -33,54 +33,73 @@
         "prefixSecurity": "silent",
         "cookies": [
           {
-            "key": "__gpi",
-            "value": "UID=00000a3536ce34f0:T=1680095788:RT=1680095788:S=ALNI_MbIFd-SdZ4hYJUiorUga2bLwqdLWg",
-            "expires": "2024-04-22T13:16:28.000Z",
-            "domain": "liberte-algerie.com",
+            "key": "_ga",
+            "value": "GA1.1.399073959.1680702864",
+            "expires": "2024-05-09T13:54:24.060Z",
+            "domain": "mfa.gov.dz",
             "path": "/",
             "hostOnly": false,
-            "creation": "2023-03-29T13:16:28.875Z",
-            "lastAccessed": "2023-03-29T13:16:28.875Z"
+            "creation": "2023-04-05T13:54:24.927Z",
+            "lastAccessed": "2023-04-05T14:05:20.968Z"
           },
           {
-            "key": "liberte_session",
-            "value": "eyJpdiI6Imt1b3had3BSRGlTdUxQLzJ4SUVCbkE9PSIsInZhbHVlIjoiWWNCdm9LcEo2RktsM3hVZ2ZWd0lNQUFRcTJZWjFrWFM1aEFEL3RHdjRKRzBTek90cDkzQWxtS00zL2E4TWZBTk1ySHkxYmxrK09LWFVRZG1RMTJUdGlpSUM3Q3RBNWZqV281alM1LzJJZno3VkhDUU9qRGw2dWVvWE1TTnV5UWwiLCJtYWMiOiJlMDVmZjBkZGI5Yzg1Yjc2MTQ4MDA1ZTVmZTllOGVhZDFhM2U3NDMxNjYyMzFiNzg4MjcwYzdmZjMxZDA0YTM4In0%3D",
-            "expires": "2023-03-29T15:16:26.653Z",
-            "domain": "www.liberte-algerie.com",
+            "key": "_ga_9YDET50528",
+            "value": "GS1.1.1680702864.1.1.1680703520.0.0.0",
+            "expires": "2024-05-09T14:05:20.590Z",
+            "domain": "mfa.gov.dz",
             "path": "/",
-            "httpOnly": true,
             "hostOnly": false,
-            "creation": "2023-03-29T13:16:28.890Z",
-            "lastAccessed": "2023-03-29T13:16:28.890Z"
+            "creation": "2023-04-05T13:54:24.939Z",
+            "lastAccessed": "2023-04-05T14:05:20.963Z"
           },
           {
-            "key": "__gads",
-            "value": "ID=e091b44225795557-22195db071dd00cc:T=1680095788:RT=1680095788:S=ALNI_MYOq6VitzRpdPXKDfU13o38_KevCA",
-            "expires": "2024-04-22T13:16:28.000Z",
-            "domain": "liberte-algerie.com",
+            "key": "TS01a02549",
+            "value": "01fa751f03acfb85e081d58d212550fef94f29bdcb1572ad1abca43b195244f6ea0f5d4d15020ee8663246c6f409518fcc2cd555cb",
+            "expires": "2023-04-05T14:44:24.925Z",
+            "domain": "www.mfa.gov.dz",
             "path": "/",
             "hostOnly": false,
-            "creation": "2023-03-29T13:16:28.893Z",
-            "lastAccessed": "2023-03-29T13:16:28.893Z"
+            "creation": "2023-04-05T13:54:24.942Z",
+            "lastAccessed": "2023-04-05T14:05:20.965Z"
           },
           {
-            "key": "XSRF-TOKEN",
-            "value": "eyJpdiI6ImZFVG9GOFpTOEtpdmNaQnA0bHFBbXc9PSIsInZhbHVlIjoiQXE0dllqNlN2OVBNa3B3VjYzbGRkQ1QvZHVCYXdnblIyZGFGK3UrNXNWQ2hUYVRSVlJ6MDdiTWcyRVdrT3JrTDdwanRHeHBHNFdRK1lFNCtYZmEyTmVqby9hRTVTQVJaajkvTDBueDErNXppTGtxTElTeXRNcHcvSGpINWVoZjAiLCJtYWMiOiI1NjIzZjVlMDE3NWI4ZjEyOWQyOGIwZTI0YzM1YTE0NjA2YWI2NDVkODAxNDM4NGVlYzhmNzU3N2NjYTlkYjZmIn0%3D",
-            "expires": "2023-03-29T15:16:25.882Z",
-            "domain": "www.liberte-algerie.com",
+            "key": "TS01007d4c",
+            "value": "01fa751f034296ff842c6ea7b9cd317d88b70c4785401b8dafc267ddf6408974d3395ced593400106b1fdaf0b16da467eb2b7ecccc",
+            "expires": "2023-04-05T14:55:20.962Z",
+            "domain": "mfa.gov.dz",
             "path": "/",
             "hostOnly": false,
-            "creation": "2023-03-29T13:16:28.897Z",
-            "lastAccessed": "2023-03-29T13:16:28.897Z"
+            "creation": "2023-04-05T14:05:20.966Z",
+            "lastAccessed": "2023-04-05T14:05:20.966Z"
           }
         ]
       },
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2023-03-29T14:06:25.166Z",
-      "createdAt": "2023-03-29T13:16:25.166Z",
-      "usageCount": 2,
+      "expiresAt": "2023-04-05T14:44:22.357Z",
+      "createdAt": "2023-04-05T13:54:22.357Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 1
+    },
+    {
+      "id": "session_jLttkU6tGE",
+      "cookieJar": {
+        "version": "tough-cookie@4.1.2",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": []
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2023-04-05T14:55:19.862Z",
+      "createdAt": "2023-04-05T14:05:19.862Z",
+      "usageCount": 0,
       "maxUsageCount": 50,
       "errorScore": 0
     }

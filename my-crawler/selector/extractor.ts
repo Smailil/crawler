@@ -53,21 +53,54 @@ class TextExtractor extends Extractor {
             findToS(this.selector.substring(2), this.S): this.selector;
         if (!(rawSelector instanceof Array) && rawSelector) {
             try {
+                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = await this.page.$$eval(rawSelector, (elements) => {
                         return elements.map(element => element.textContent ?? '');
                     });
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(elements, this.textManipulation)
-                    ]);
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(elements, this.textManipulation)
+                        ]);
+                    } else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, ...textManipulation(elements, this.textManipulation)]
+                        ]);
+                    } else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                ...textManipulation(elements, this.textManipulation)]
+                        ]);
+                    }
                 } else {
                     const element = await this.page.$eval(rawSelector, element =>
                         element.textContent ?? '');
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(element, this.textManipulation)
-                    ])
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(element, this.textManipulation)
+                        ]);
+                    }
+                    else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, textManipulation(element, this.textManipulation) as string]
+                        ]);
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                textManipulation(element, this.textManipulation) as string]
+                        ]);
+                    }
                 }
             } catch (error) {
                 this.S.push([this.name.substring(2), '']);
@@ -85,20 +118,55 @@ class ImageExtractor extends Extractor {
             findToS(this.selector.substring(2), this.S): this.selector;
         if (!(rawSelector instanceof Array) && rawSelector) {
             try {
+                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = await this.page.$$eval(rawSelector, (elements) => {
                         return elements.map(element => (element as HTMLImageElement).src ?? '');
                     });
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(elements, this.textManipulation)
-                    ]);
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(elements, this.textManipulation)
+                        ]);
+                    }
+                    else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, ...textManipulation(elements, this.textManipulation)]
+                        ]);
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                ...textManipulation(elements, this.textManipulation)]
+                        ]);
+                    }
                 } else {
                     const element = await this.page.$eval(rawSelector, element => (element as HTMLImageElement).src ?? '');
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(element, this.textManipulation)
-                    ]);
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(element, this.textManipulation)
+                        ]);
+                    }
+                    else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, textManipulation(element, this.textManipulation) as string]
+                        ]);
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                textManipulation(element, this.textManipulation) as string]
+                        ]);
+                    }
                 }
             } catch (error) {
                 this.S.push([this.name.substring(2), '']);
@@ -116,20 +184,55 @@ class UrlExtractor extends Extractor {
             findToS(this.selector.substring(2), this.S): this.selector;
         if (!(rawSelector instanceof Array) && rawSelector) {
             try {
+                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = await this.page.$$eval(rawSelector, (elements) => {
                         return elements.map(element => (element as HTMLAnchorElement).href ?? '');
                     })
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(elements, this.textManipulation)
-                    ])
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(elements, this.textManipulation)
+                        ]);
+                    }
+                    else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, ...textManipulation(elements, this.textManipulation)]
+                        ]);
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                ...textManipulation(elements, this.textManipulation)]
+                        ]);
+                    }
                 } else {
                     const element = await this.page.$eval(rawSelector, element => (element as HTMLAnchorElement).href ?? '');
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(element, this.textManipulation)
-                    ]);
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(element, this.textManipulation)
+                        ]);
+                    }
+                    else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, textManipulation(element, this.textManipulation) as string]
+                        ]);
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                textManipulation(element, this.textManipulation) as string]
+                        ]);
+                    }
                 }
             } catch (error) {
                 this.S.push([this.name.substring(2), '']);
@@ -160,20 +263,55 @@ class AttributeExtractor {
             findToS(this.selector.substring(2), this.S): this.selector;
         if (!(rawSelector instanceof Array) && rawSelector) {
             try {
+                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = await this.page.$$eval(rawSelector, (elements) => {
                         return elements.map(element => element.getAttribute(this.attribute) ?? '');
                     });
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(elements, this.textManipulation)
-                    ]);
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(elements, this.textManipulation)
+                        ]);
+                    }
+                    else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, ...textManipulation(elements, this.textManipulation)]
+                        ]);
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                ...textManipulation(elements, this.textManipulation)]
+                        ]);
+                    }
                 } else {
                     const element = await this.page.$eval(rawSelector, element => element.getAttribute(this.attribute) ?? '');
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(element, this.textManipulation)
-                    ]);
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(element, this.textManipulation)
+                        ]);
+                    }
+                    else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, textManipulation(element, this.textManipulation) as string]
+                        ]);
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                textManipulation(element, this.textManipulation) as string]
+                        ]);
+                    }
                 }
             } catch (error) {
                 this.S.push([this.name.substring(2), '']);
@@ -191,20 +329,55 @@ class HTMLExtractor extends Extractor {
             findToS(this.selector.substring(2), this.S) : this.selector;
         if (!(rawSelector instanceof Array) && rawSelector) {
             try {
+                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = await this.page.$$eval(rawSelector, (elements) => {
                         return elements.map(element => element.innerHTML ?? '');
                     })
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(elements, this.textManipulation)
-                    ]);
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(elements, this.textManipulation)
+                        ]);
+                    }
+                    else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, ...textManipulation(elements, this.textManipulation)]
+                        ]);
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                ...textManipulation(elements, this.textManipulation)]
+                        ]);
+                    }
                 } else {
                     const element = await this.page.$eval(rawSelector, element => element.innerHTML ?? '');
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(element, this.textManipulation)
-                    ]);
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(element, this.textManipulation)
+                        ]);
+                    }
+                    else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, textManipulation(element, this.textManipulation) as string]
+                        ]);
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                textManipulation(element, this.textManipulation) as string]
+                        ]);
+                    }
                 }
             } catch (error) {
                 this.S.push([this.name.substring(2), '']);
@@ -228,21 +401,56 @@ class TextFromHTMLExtractor extends FromHTMLExtractor {
                 const { window } = new JSDOM(rawHTML);
                 const { document } = window;
 
+                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = document.querySelectorAll(rawSelector as keyof HTMLElementTagNameMap);
                     const textContents = Array.from(elements).map(element =>
                         (element as Element).textContent ?? '');
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(textContents, this.textManipulation)
-                    ]);
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(textContents, this.textManipulation)
+                        ]);
+                    }
+                    else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, ...textManipulation(textContents, this.textManipulation)]
+                        ]);
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                ...textManipulation(textContents, this.textManipulation)]
+                        ]);
+                    }
                 } else {
                     const element = document.querySelector(rawSelector as keyof HTMLElementTagNameMap);
                     const textContent = (element as Element).textContent ?? '';
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(textContent, this.textManipulation)
-                    ]);
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(textContent, this.textManipulation)
+                        ]);
+                    }
+                    else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, textManipulation(textContent, this.textManipulation) as string]
+                        ]);
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                textManipulation(textContent, this.textManipulation) as string]
+                        ]);
+                    }
                 }
             } catch (error) {
                 this.S.push([this.name.substring(2), '']);
@@ -266,21 +474,56 @@ class UrlFromHTMLExtractor extends FromHTMLExtractor {
                 const { window } = new JSDOM(rawHTML);
                 const { document } = window;
 
+                const previousValue = findToS(this.name.substring(2), this.S);
                 if (this.multiple) {
                     const elements = document.querySelectorAll(rawSelector as keyof HTMLElementTagNameMap);
                     const hrefs = Array.from(elements).map(element =>
                         (element as HTMLAnchorElement).href ?? '');
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(hrefs, this.textManipulation)
-                    ]);
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(hrefs, this.textManipulation)
+                        ]);
+                    }
+                    else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, ...textManipulation(hrefs, this.textManipulation)]
+                        ]);
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                ...textManipulation(hrefs, this.textManipulation)]
+                        ]);
+                    }
                 } else {
                     const element = document.querySelector(rawSelector as keyof HTMLElementTagNameMap);
                     const href = (element as HTMLAnchorElement)?.href ?? '';
-                    this.S.push([
-                        this.name.substring(2),
-                        textManipulation(href, this.textManipulation)
-                    ]);
+                    if (previousValue === null) {
+                        this.S.push([
+                            this.name.substring(2),
+                            textManipulation(href, this.textManipulation)
+                        ]);
+                    }
+                    else if (typeof previousValue === 'string') {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [previousValue, textManipulation(href, this.textManipulation) as string]
+                        ]);
+                    }
+                    else if (previousValue instanceof Array && previousValue.every((val) => typeof val === 'string')) {
+                        this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                        this.S.push([
+                            this.name.substring(2),
+                            [...(previousValue as string[]),
+                                textManipulation(href, this.textManipulation) as string]
+                        ]);
+                    }
                 }
             } catch (error) {
                 this.S.push([this.name.substring(2), '']);

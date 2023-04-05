@@ -18,7 +18,14 @@ class Variable {
     async VariableCreate() {
         const rawValue = this.value.startsWith("S:") ? findToS(this.value.substring(2), this.S): this.value;
         if(rawValue && !(rawValue instanceof Array)) {
-            this.S.push([this.name.substring(2), textManipulation(rawValue, this.textManipulation)]);
+            const previousValue = findToS(this.name.substring(2), this.S);
+            if (previousValue === null) {
+                this.S.push([this.name.substring(2), textManipulation(rawValue, this.textManipulation)]);
+            } else{
+                this.S.splice(this.S.findIndex(([key]) => key === this.name.substring(2)), 1);
+                this.S.push([this.name.substring(2), textManipulation(rawValue, this.textManipulation)]);
+                console.log(this.S);
+            }
         }
     }
 }
@@ -35,7 +42,7 @@ class Increment {
     async IncrementDone() {
         const number = findToS(this.name.substring(2), this.S);
         if (!(number instanceof Array) && number) {
-            const index = this.S.indexOf([this.name.substring(2), number]);
+            const index = this.S.findIndex(([key]) => key === this.name.substring(2));
             if (index !== -1) {
                 this.S.splice(index, 1);
                 this.S.push([this.name.substring(2), (Number(number) + 1).toString()]);
@@ -58,7 +65,7 @@ class Decrement {
     async DecrementDone() {
         const number = findToS(this.name.substring(2), this.S);
         if (!(number instanceof Array) && number) {
-            const index = this.S.indexOf([this.name.substring(2), number]);
+            const index = this.S.findIndex(([key]) => key === this.name.substring(2));
             if (index !== -1) {
                 this.S.splice(index, 1);
                 this.S.push([this.name.substring(2), (Number(number) - 1).toString()]);
