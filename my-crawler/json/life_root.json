@@ -1,0 +1,48 @@
+{
+  "_id": "life_root",
+  "startUrls": ["https://life.ru/s/novosti"],
+  "beginProgram": ["1", "2", "3", "7"],
+  "selectors": [
+    {
+      "id": "1",
+      "type": "variable",
+      "name": "S:count",
+      "value": "2",
+      "textManipulation": {}
+    },
+    {
+      "id": "2",
+      "type": "timeout",
+      "time": "5000"
+    },
+    {
+      "id": "3",
+      "type": "while",
+      "firstOperand": "S:count",
+      "logicalOperation": "!=",
+      "secondOperand": "0",
+      "program": ["4", "5", "6"],
+      "typeOfOperand": "integer"
+    },
+    {
+      "id": "4",
+      "type": "decrement",
+      "name": "S:count"
+    },
+    {
+      "id": "5",
+      "type": "scroll",
+      "subType": "onBottom"
+    },
+    {
+      "id": "6",
+      "type": "timeout",
+      "time": "3000"
+    },
+    {
+      "id": "7",
+      "type": "include",
+      "label": "life_scrapemap"
+    }
+  ]
+}

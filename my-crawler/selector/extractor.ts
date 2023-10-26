@@ -297,9 +297,11 @@ class AttributeExtractor {
             const previousValue = findToS(this.name.substring(2), this.S);
             try {
                 if (this.multiple) {
-                    const elements = await this.page.$$eval(rawSelector, (elements) => {
-                        return elements.map(element => element.getAttribute(this.attribute) ?? '');
-                    });
+                    const elements = await this.page.$$eval(rawSelector,
+                        (elements, attribute) => {
+                        return elements.map(element => element.getAttribute(attribute) ?? '');
+                    }, this.attribute);
+
                     if (previousValue === null) {
                         this.S.push([
                             this.name.substring(2),
@@ -322,7 +324,8 @@ class AttributeExtractor {
                         ]);
                     }
                 } else {
-                    const element = await this.page.$eval(rawSelector, element => element.getAttribute(this.attribute) ?? '');
+                    const element = await this.page.$eval(rawSelector,
+                        (element, attribute) => element.getAttribute(attribute) ?? '', this.attribute);
                     if (previousValue === null) {
                         this.S.push([
                             this.name.substring(2),

@@ -1,0 +1,15 @@
+{
+  "_id": "mfagov_scrapemap",
+  "beginProgram": ["1"],
+  "selectors": [
+    {
+      "id": "1",
+      "type": "extractor",
+      "subType": "url",
+      "selector": "a.styles_root__2aHN8",
+      "name": "S:urls",
+      "multiple": true,
+      "textManipulation": {}
+    }
+  ]
+}
